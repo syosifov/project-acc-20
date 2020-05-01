@@ -17,32 +17,31 @@ public class Balance {
     @GeneratedValue
     private Integer id;
 
-    @Column(precision = 19, scale = 4)
+    @Column(precision = 19, scale = U.SCALE)
     private BigDecimal assets;
 
-    @Column(precision = 19, scale = 4)
+    @Column(precision = 19, scale = U.SCALE)
     private BigDecimal liabilities;
 
-    @Column(precision = 19, scale = 4)
+    @Column(precision = 19, scale = U.SCALE)
     private BigDecimal score;
 
     @Column
     private LocalDate lastModified;
 
     public Balance() {
-        this.assets = new BigDecimal(0, U.mc4);
-        this.liabilities = new BigDecimal(0, U.mc4);
-        this.score = new BigDecimal(0, U.mc4);
+        this.assets = new BigDecimal(0, U.mc2);
+        this.liabilities = new BigDecimal(0, U.mc2);
+        this.score = new BigDecimal(0, U.mc2);
     }
 
     public Balance(BigDecimal assets,
                    BigDecimal liabilities,
                    BigDecimal score,
                    LocalDate lastModified) {
-        this();
-        this.assets.add(assets, U.mc4);
-        this.liabilities.add(liabilities, U.mc4);
-        this.score.add(score, U.mc4);
+        this.assets = assets;
+        this.liabilities = liabilities;
+        this.score = score;
         this.lastModified = lastModified;
     }
 

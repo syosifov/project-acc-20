@@ -5,5 +5,7 @@ import java.math.RoundingMode;
 
 public class U {
 
-    public static MathContext mc4 = new MathContext(19, RoundingMode.HALF_EVEN);
+    public static final int SCALE = 2;
+    public static MathContext mc2 = new MathContext(19, RoundingMode.HALF_EVEN);
+    //public static MathContext mc4 = new MathContext(4, RoundingMode.HALF_EVEN);
 }
