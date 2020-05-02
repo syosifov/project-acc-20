@@ -13,6 +13,8 @@ public class BdTest {
     @Test
     public void t1() {
         BigDecimal bd = new BigDecimal("0.00");
+        System.out.println(bd.precision());
+        System.out.println(bd.scale());
         System.out.println(bd);
     }
 

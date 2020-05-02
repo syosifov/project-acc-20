@@ -30,9 +30,9 @@ public class Balance {
     private LocalDate lastModified;
 
     public Balance() {
-        this.assets = new BigDecimal(0, U.mc2);
-        this.liabilities = new BigDecimal(0, U.mc2);
-        this.score = new BigDecimal(0, U.mc2);
+        this.assets = new BigDecimal("0.00");
+        this.liabilities = new BigDecimal("0.00");
+        this.score = new BigDecimal("0.00");
     }
 
     public Balance(BigDecimal assets,
