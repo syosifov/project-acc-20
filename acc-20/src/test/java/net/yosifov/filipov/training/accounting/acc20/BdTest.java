@@ -1,6 +1,6 @@
 package net.yosifov.filipov.training.accounting.acc20;
 
-import net.yosifov.filipov.training.accounting.acc20.utils.U;
+import net.yosifov.filipov.training.accounting.acc20.utils.C;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -40,14 +40,14 @@ public class BdTest {
                                                   BigDecimal unitPrice,
                                                   BigDecimal discountRate,
                                                   BigDecimal taxRate) {
-        BigDecimal amount = quantity.multiply(unitPrice).setScale(U.SCALE, RoundingMode.HALF_EVEN);
-        BigDecimal discount = amount.multiply(discountRate).setScale(U.SCALE, RoundingMode.HALF_EVEN);
-        BigDecimal discountedAmount = amount.subtract(discount).setScale(U.SCALE, RoundingMode.HALF_EVEN);
-        BigDecimal tax = discountedAmount.multiply(taxRate).setScale(U.SCALE, RoundingMode.HALF_EVEN);
-        BigDecimal total = discountedAmount.add(tax).setScale(U.SCALE, RoundingMode.HALF_EVEN);
+        BigDecimal amount = quantity.multiply(unitPrice).setScale(C.SCALE, RoundingMode.HALF_EVEN);
+        BigDecimal discount = amount.multiply(discountRate).setScale(C.SCALE, RoundingMode.HALF_EVEN);
+        BigDecimal discountedAmount = amount.subtract(discount).setScale(C.SCALE, RoundingMode.HALF_EVEN);
+        BigDecimal tax = discountedAmount.multiply(taxRate).setScale(C.SCALE, RoundingMode.HALF_EVEN);
+        BigDecimal total = discountedAmount.add(tax).setScale(C.SCALE, RoundingMode.HALF_EVEN);
 
         // round to 2 decimal places using HALF_EVEN
-        BigDecimal roundedTotal = total.setScale(U.SCALE, RoundingMode.HALF_EVEN);
+        BigDecimal roundedTotal = total.setScale(C.SCALE, RoundingMode.HALF_EVEN);
 
         return roundedTotal;
     }

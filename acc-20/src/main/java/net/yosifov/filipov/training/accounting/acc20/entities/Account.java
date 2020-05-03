@@ -1,48 +1,57 @@
 package net.yosifov.filipov.training.accounting.acc20.entities;
 
-import net.yosifov.filipov.training.accounting.acc20.utils.U;
+import net.yosifov.filipov.training.accounting.acc20.utils.BT;
+import net.yosifov.filipov.training.accounting.acc20.utils.C;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.math.MathContext;
-import java.math.RoundingMode;
 import java.time.LocalDate;
 
-import net.yosifov.filipov.training.accounting.acc20.utils.U;
-
 @Entity
-public class Balance {
+public class Account {
 
     @Id
     @GeneratedValue
     private Integer id;
 
-    @Column(precision = 19, scale = U.SCALE)
+    @Column(precision = 19, scale = C.SCALE)
+    @NotNull
     private BigDecimal assets;
 
-    @Column(precision = 19, scale = U.SCALE)
+    @Column(precision = 19, scale = C.SCALE)
+    @NotNull
     private BigDecimal liabilities;
 
-    @Column(precision = 19, scale = U.SCALE)
-    private BigDecimal score;
+    @Column(precision = 19, scale = C.SCALE)
+    @NotNull
+    private BigDecimal balance;
 
     @Column
+    @NotNull
     private LocalDate lastModified;
 
-    public Balance() {
+    @Column
+    @NotNull
+    private BT bt;
+
+    public Account() {
         this.assets = new BigDecimal("0.00");
         this.liabilities = new BigDecimal("0.00");
-        this.score = new BigDecimal("0.00");
+        this.balance = new BigDecimal("0.00");
+        this.bt = BT.A;
     }
 
-    public Balance(BigDecimal assets,
+    public Account(BigDecimal assets,
                    BigDecimal liabilities,
-                   BigDecimal score,
-                   LocalDate lastModified) {
+                   BigDecimal balance,
+                   LocalDate lastModified,
+                   BT bt) {
         this.assets = assets;
         this.liabilities = liabilities;
-        this.score = score;
+        this.balance = balance;
         this.lastModified = lastModified;
+        this.bt = bt;
     }
 
     public Integer getId() {
@@ -69,12 +78,12 @@ public class Balance {
         this.liabilities = liabilities;
     }
 
-    public BigDecimal getScore() {
-        return score;
+    public BigDecimal getBalance() {
+        return balance;
     }
 
-    public void setScore(BigDecimal score) {
-        this.score = score;
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
     }
 
     public LocalDate getLastModified() {
@@ -91,7 +100,7 @@ public class Balance {
                 "id=" + id +
                 ", assets=" + assets +
                 ", liabilities=" + liabilities +
-                ", score=" + score +
+                ", balance=" + balance +
                 ", lastModified=" + lastModified +
                 '}';
     }

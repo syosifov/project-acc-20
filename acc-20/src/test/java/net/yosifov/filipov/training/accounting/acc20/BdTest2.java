@@ -1,6 +1,6 @@
 package net.yosifov.filipov.training.accounting.acc20;
 
-import net.yosifov.filipov.training.accounting.acc20.utils.U;
+import net.yosifov.filipov.training.accounting.acc20.utils.C;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -42,9 +42,9 @@ public class BdTest2 {
                 .multiply(new BigDecimal("1.5"));
 //                .setScale(U.SCALE, RoundingMode.HALF_EVEN);
         BigDecimal regPay  = regularRate.multiply(regularHours)
-                .setScale(U.SCALE, RoundingMode.HALF_EVEN);
+                .setScale(C.SCALE, RoundingMode.HALF_EVEN);
         BigDecimal overPay = overTimeRate.multiply(overTimeHours)
-                .setScale(U.SCALE, RoundingMode.HALF_EVEN);
+                .setScale(C.SCALE, RoundingMode.HALF_EVEN);
         BigDecimal total   = regPay.add(overPay);
         System.out.println(total);
     }
