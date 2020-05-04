@@ -1,6 +1,6 @@
 package net.yosifov.filipov.training.accounting.acc20.entities;
 
-import net.yosifov.filipov.training.accounting.acc20.utils.BT;
+import net.yosifov.filipov.training.accounting.acc20.utils.AT;
 import net.yosifov.filipov.training.accounting.acc20.utils.C;
 
 import javax.persistence.*;
@@ -33,25 +33,25 @@ public class Account {
 
     @Column
     @NotNull
-    private BT bt;
+    private AT at;
 
     public Account() {
         this.assets = new BigDecimal("0.00");
         this.liabilities = new BigDecimal("0.00");
         this.balance = new BigDecimal("0.00");
-        this.bt = BT.A;
+        this.at = AT.A;
     }
 
     public Account(BigDecimal assets,
                    BigDecimal liabilities,
                    BigDecimal balance,
                    LocalDate lastModified,
-                   BT bt) {
+                   AT at) {
         this.assets = assets;
         this.liabilities = liabilities;
         this.balance = balance;
         this.lastModified = lastModified;
-        this.bt = bt;
+        this.at = at;
     }
 
     public Integer getId() {
@@ -94,9 +94,17 @@ public class Account {
         this.lastModified = lastModified;
     }
 
+    public AT getAt() {
+        return at;
+    }
+
+    public void setAt(AT at) {
+        this.at = at;
+    }
+
     @Override
     public String toString() {
-        return "Balance{" +
+        return "Account {" +
                 "id=" + id +
                 ", assets=" + assets +
                 ", liabilities=" + liabilities +

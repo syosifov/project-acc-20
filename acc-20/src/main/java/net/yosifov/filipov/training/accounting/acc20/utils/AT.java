@@ -1,6 +1,6 @@
 package net.yosifov.filipov.training.accounting.acc20.utils;
 
-public enum BT {    //Balance Type
+public enum AT {    //Account Type
     A,      //Assets
     L,      //Liabilities
     AL      //Assets and Liabilities
