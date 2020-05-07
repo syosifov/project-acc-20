@@ -3,9 +3,11 @@ package net.yosifov.filipov.training.accounting.acc20.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class Firm {
+@Table(name = "companies")
+public class Company {
 
     @Id
     @GeneratedValue
@@ -17,10 +19,10 @@ public class Firm {
 
     private String taxCode;
 
-    public Firm() {
+    public Company() {
     }
 
-    public Firm(String name, String address, String taxCode) {
+    public Company(String name, String address, String taxCode) {
         this.name = name;
         this.address = address;
         this.taxCode = taxCode;
@@ -60,7 +62,7 @@ public class Firm {
 
     @Override
     public String toString() {
-        return "Firm {" +
+        return "Company {" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
