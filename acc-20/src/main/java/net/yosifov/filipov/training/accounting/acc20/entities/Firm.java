@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Enterprise {
+public class Firm {
 
     @Id
     @GeneratedValue
@@ -17,10 +17,10 @@ public class Enterprise {
 
     private String taxCode;
 
-    public Enterprise() {
+    public Firm() {
     }
 
-    public Enterprise(String name, String address, String taxCode) {
+    public Firm(String name, String address, String taxCode) {
         this.name = name;
         this.address = address;
         this.taxCode = taxCode;
@@ -60,7 +60,7 @@ public class Enterprise {
 
     @Override
     public String toString() {
-        return "Enterprise{" +
+        return "Firm {" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
