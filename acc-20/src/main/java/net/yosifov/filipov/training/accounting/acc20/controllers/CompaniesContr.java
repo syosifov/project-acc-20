@@ -45,5 +45,12 @@ public class CompaniesContr {
         return em;
     }
 
+    @PutMapping("/jpa/companies")
+    public EntityModel<Company> updateCompany(@RequestBody Company company) {
+        Company savedCompany = companiesRep.save(company);
+        EntityModel<Company> em = new EntityModel<>(savedCompany);
+        return em;
+    }
+
 
 }
