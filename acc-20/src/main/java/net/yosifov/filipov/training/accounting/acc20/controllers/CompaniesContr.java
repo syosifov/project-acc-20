@@ -52,5 +52,10 @@ public class CompaniesContr {
         return em;
     }
 
+    @DeleteMapping("/jpa/companies/{id}")
+    public void deleteUser(@PathVariable int id) {
+        companiesRep.deleteById(id);
+    }
+
 
 }
