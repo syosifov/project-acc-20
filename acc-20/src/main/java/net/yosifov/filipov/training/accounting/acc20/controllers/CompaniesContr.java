@@ -9,9 +9,7 @@ import net.yosifov.filipov.training.accounting.acc20.exceptions.NotFoundExceptio
 import net.yosifov.filipov.training.accounting.acc20.repositories.CompaniesRep;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.hateoas.server.mvc.ControllerLinkBuilder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.hateoas.EntityModel;
 
@@ -38,6 +36,13 @@ public class CompaniesContr {
         }
 
         return new EntityModel<>(firm.get());
+    }
+
+    @PostMapping("/jpa/companies")
+    public EntityModel<Company> createCompany(@RequestBody Company company) {
+        Company savedCompany = companiesRep.save(company);
+        EntityModel<Company> em = new EntityModel<>(savedCompany);
+        return em;
     }
 
 
