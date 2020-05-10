@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.hateoas.server.mvc.ControllerLinkBuilder;
 import org.springframework.web.bind.annotation.*;
 
-import org.springframework.hateoas.EntityModel;
+//import org.springframework.hateoas.EntityModel;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,28 +28,28 @@ public class CompaniesContr {
     }
 
     @GetMapping("/jpa/companies/{id}")
-    public EntityModel<Company> retrieveFirmById(@PathVariable int id) {
+    public Company retrieveFirmById(@PathVariable int id) {
         Optional<Company> firm = companiesRep.findById(id);
 
         if(firm.isEmpty()) {
             throw new NotFoundException("Company not found");
         }
 
-        return new EntityModel<>(firm.get());
+        return firm.get();
     }
 
     @PostMapping("/jpa/companies")
-    public EntityModel<Company> createCompany(@RequestBody Company company) {
+    public Company createCompany(@RequestBody Company company) {
         Company savedCompany = companiesRep.save(company);
-        EntityModel<Company> em = new EntityModel<>(savedCompany);
-        return em;
+        //EntityModel<Company> em = new EntityModel<>(savedCompany);
+        return savedCompany;
     }
 
     @PutMapping("/jpa/companies")
-    public EntityModel<Company> updateCompany(@RequestBody Company company) {
+    public Company updateCompany(@RequestBody Company company) {
         Company savedCompany = companiesRep.save(company);
-        EntityModel<Company> em = new EntityModel<>(savedCompany);
-        return em;
+        //EntityModel<Company> em = new EntityModel<>(savedCompany);
+        return savedCompany;
     }
 
     @DeleteMapping("/jpa/companies/{id}")
