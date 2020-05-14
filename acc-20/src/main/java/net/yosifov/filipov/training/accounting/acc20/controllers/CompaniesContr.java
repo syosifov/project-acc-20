@@ -19,6 +19,7 @@ import java.util.Optional;
 
 @RestController
 @EnableTransactionManagement
+// https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#transactions
 public class CompaniesContr {
 
     @Autowired
