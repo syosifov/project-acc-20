@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@EnableTransactionManagement
+//@EnableTransactionManagement
 // https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#transactions
 public class CompaniesContr {
 
