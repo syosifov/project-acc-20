@@ -9,6 +9,7 @@ import net.yosifov.filipov.training.accounting.acc20.exceptions.NotFoundExceptio
 import net.yosifov.filipov.training.accounting.acc20.repositories.CompaniesRep;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.hateoas.server.mvc.ControllerLinkBuilder;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.bind.annotation.*;
 
 //import org.springframework.hateoas.EntityModel;
@@ -17,6 +18,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@EnableTransactionManagement
 public class CompaniesContr {
 
     @Autowired
