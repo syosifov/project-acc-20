@@ -1,0 +1,7 @@
+https://www.concretepage.com/spring-boot/spring-boot-commandlinerunner-and-applicationrunner-example
+
+Testing JPA Queries with Spring Boot and @DataJpaTest
+https://reflectoring.io/spring-boot-data-jpa-test/
+
+Integration Tests with @SpringBootTest
+https://reflectoring.io/spring-boot-test/

@@ -1,9 +1,6 @@
 package net.yosifov.filipov.training.accounting.acc20.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "companies")
@@ -17,6 +14,7 @@ public class Company {
 
     private String address;
 
+    @Column(unique = true)
     private String taxCode;
 
     public Company() {
