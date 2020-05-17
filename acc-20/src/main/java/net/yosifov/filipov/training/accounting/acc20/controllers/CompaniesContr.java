@@ -43,16 +43,12 @@ public class CompaniesContr {
 
     @PostMapping("/jpa/companies")
     public Company createCompany(@RequestBody Company company) {
-        Company savedCompany = companiesRep.save(company);
-        //EntityModel<Company> em = new EntityModel<>(savedCompany);
-        return savedCompany;
+        return companiesRep.save(company);
     }
 
     @PutMapping("/jpa/companies")
     public Company updateCompany(@RequestBody Company company) {
-        Company savedCompany = companiesRep.save(company);
-        //EntityModel<Company> em = new EntityModel<>(savedCompany);
-        return savedCompany;
+        return companiesRep.save(company);
     }
 
     @DeleteMapping("/jpa/companies/{id}")
