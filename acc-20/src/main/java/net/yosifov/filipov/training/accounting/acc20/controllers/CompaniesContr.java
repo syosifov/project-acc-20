@@ -31,14 +31,14 @@ public class CompaniesContr {
     }
 
     @GetMapping("/jpa/companies/{id}")
-    public Company retrieveFirmById(@PathVariable int id) {
-        Optional<Company> firm = companiesRep.findById(id);
+    public Company retrieveFirmById(@PathVariable long id) {
+        Optional<Company> company = companiesRep.findById(id);
 
-        if(firm.isEmpty()) {
+        if(company.isEmpty()) {
             throw new NotFoundException("Company not found");
         }
 
-        return firm.get();
+        return company.get();
     }
 
     @PostMapping("/jpa/companies")
@@ -56,7 +56,7 @@ public class CompaniesContr {
     }
 
     @DeleteMapping("/jpa/companies/{id}")
-    public void deleteUser(@PathVariable int id) {
+    public void deleteUser(@PathVariable long id) {
         companiesRep.deleteById(id);
     }
 

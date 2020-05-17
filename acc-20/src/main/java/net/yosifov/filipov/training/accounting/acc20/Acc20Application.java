@@ -32,6 +32,7 @@ public class Acc20Application implements CommandLineRunner {
 		Account account = new Account();
 		account.setCompany(company);
 		account.setLastModified(LocalDate.now());
+		account.setName(company.getName() + " Balance");
 		accountsRep.save(account);
 	}
 }
