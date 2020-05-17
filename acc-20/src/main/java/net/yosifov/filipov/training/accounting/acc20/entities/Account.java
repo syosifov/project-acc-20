@@ -36,6 +36,10 @@ public class Account {
     @NotNull
     private AT at;
 
+    @NotNull
+    @ManyToOne
+    private Company company;
+
     public Account() {
         this.assets = new BigDecimal("0.00");
         this.liabilities = new BigDecimal("0.00");
@@ -47,12 +51,14 @@ public class Account {
                    BigDecimal liabilities,
                    BigDecimal balance,
                    LocalDate lastModified,
-                   AT at) {
+                   AT at,
+                   Company company) {
         this.assets = assets;
         this.liabilities = liabilities;
         this.balance = balance;
         this.lastModified = lastModified;
         this.at = at;
+        this.company = company;
     }
 
     public Integer getId() {
@@ -103,14 +109,24 @@ public class Account {
         this.at = at;
     }
 
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
     @Override
     public String toString() {
-        return "Account {" +
+        return "Account{" +
                 "id=" + id +
                 ", assets=" + assets +
                 ", liabilities=" + liabilities +
                 ", balance=" + balance +
                 ", lastModified=" + lastModified +
+                ", at=" + at +
+                ", company=" + company +
                 '}';
     }
 }
