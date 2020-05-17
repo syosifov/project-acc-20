@@ -14,7 +14,7 @@ public class Account {
 
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long id;
 
     @Column(precision = 19, scale = C.SCALE)
     @NotNull
@@ -36,6 +36,10 @@ public class Account {
     @NotNull
     private AT at;
 
+    @Column
+    @NotNull
+    private String name;
+
     @NotNull
     @ManyToOne
     private Company company;
@@ -52,20 +56,22 @@ public class Account {
                    BigDecimal balance,
                    LocalDate lastModified,
                    AT at,
+                   String name,
                    Company company) {
         this.assets = assets;
         this.liabilities = liabilities;
         this.balance = balance;
         this.lastModified = lastModified;
         this.at = at;
+        this.name = name;
         this.company = company;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -115,6 +121,14 @@ public class Account {
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
