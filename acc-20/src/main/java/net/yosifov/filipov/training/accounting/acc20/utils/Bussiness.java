@@ -30,7 +30,28 @@ public class Bussiness {
         account.setCompany(company);
         account.setLastModified(LocalDate.now());
         account.setName(company.getName() + " Balance");
+        account.setAt(AT.AL);
         accountsRep.save(account);
 
+        Account a1 = new Account();
+        a1.setLastModified(LocalDate.now());
+        a1.setAt(AT.A);
+        a1.setName("a1");
+        a1.setParentAccount(account);
+        accountsRep.save(a1);
+
+        Account l1 = new Account();
+        l1.setLastModified(LocalDate.now());
+        l1.setAt(AT.L);
+        l1.setName("l1");
+        l1.setParentAccount(account);
+        accountsRep.save(l1);
+
+        Account al1 = new Account();
+        al1.setLastModified(LocalDate.now());
+        al1.setAt(AT.AL);
+        al1.setName("al1");
+        al1.setParentAccount(account);
+        accountsRep.save(al1);
     }
 }

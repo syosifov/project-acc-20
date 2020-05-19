@@ -1,5 +1,6 @@
 package net.yosifov.filipov.training.accounting.acc20.entities;
 
+import com.sun.istack.Nullable;
 import net.yosifov.filipov.training.accounting.acc20.utils.AT;
 import net.yosifov.filipov.training.accounting.acc20.utils.C;
 
@@ -7,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "accounts")
@@ -40,15 +42,27 @@ public class Account {
     @NotNull
     private String name;
 
+    @Column
     @NotNull
+    private String description;
+
+    @Nullable
     @ManyToOne
     private Company company;
+
+    @Nullable
+    @ManyToOne
+    private Account parentAccount;
+
+    @OneToMany(mappedBy = "parentAccount")
+    private List<Account> childrenAccounts;
 
     public Account() {
         this.assets = new BigDecimal("0.00");
         this.liabilities = new BigDecimal("0.00");
         this.balance = new BigDecimal("0.00");
         this.at = AT.A;
+        this.description = "";
     }
 
     public Account(BigDecimal assets,
@@ -58,6 +72,7 @@ public class Account {
                    AT at,
                    String name,
                    Company company) {
+        this();
         this.assets = assets;
         this.liabilities = liabilities;
         this.balance = balance;
@@ -131,6 +146,31 @@ public class Account {
         this.name = name;
     }
 
+
+    public Account getParentAccount() {
+        return parentAccount;
+    }
+
+    public void setParentAccount(Account parentAccount) {
+        this.parentAccount = parentAccount;
+    }
+
+    public List<Account> getChildrenAccounts() {
+        return childrenAccounts;
+    }
+
+    public void setChildrenAccounts(List<Account> childrenAccounts) {
+        this.childrenAccounts = childrenAccounts;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public String toString() {
         return "Account{" +
@@ -140,7 +180,11 @@ public class Account {
                 ", balance=" + balance +
                 ", lastModified=" + lastModified +
                 ", at=" + at +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
                 ", companyName=" + company.getName() +
+                ", parentAccountName=" + parentAccount.getName() +
+//                ", childrenAccounts=" + childrenAccounts +
                 '}';
     }
 }

@@ -5,3 +5,6 @@ https://reflectoring.io/spring-boot-data-jpa-test/
 
 Integration Tests with @SpringBootTest
 https://reflectoring.io/spring-boot-test/
+
+Automatic Rollback of Transactions in Spring Tests
+https://relentlesscoding.com/2020/03/01/automatic-rollback-of-transactions-in-spring-tests/
