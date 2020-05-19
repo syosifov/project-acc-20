@@ -140,7 +140,7 @@ public class Account {
                 ", balance=" + balance +
                 ", lastModified=" + lastModified +
                 ", at=" + at +
-                ", company=" + company +
+                ", companyName=" + company.getName() +
                 '}';
     }
 }
