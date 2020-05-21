@@ -1,7 +1,7 @@
 package net.yosifov.filipov.training.accounting.acc20.entities;
 
 import javax.persistence.*;
-import java.util.List;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "companies")
@@ -18,9 +18,9 @@ public class Company {
     @Column(unique = true)
     private String taxCode;
 
-    @Column
-    @OneToMany(mappedBy = "company")
-    private List<Account> accounts;
+    @NotNull
+    @OneToOne
+    private Account currentAccount;
 
     public Company() {
     }
@@ -63,12 +63,12 @@ public class Company {
         this.taxCode = taxCode;
     }
 
-    public List<Account> getAccounts() {
-        return accounts;
+    public Account getCurrentAccount() {
+        return currentAccount;
     }
 
-    public void setAccounts(List<Account> accounts) {
-        this.accounts = accounts;
+    public void setCurrentAccount(Account currentAccount) {
+        this.currentAccount = currentAccount;
     }
 
     @Override
@@ -78,7 +78,7 @@ public class Company {
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", taxCode='" + taxCode + '\'' +
-                ", accounts=" + accounts +
+                ", accountName=" + currentAccount.getName() +
                 '}';
     }
 }

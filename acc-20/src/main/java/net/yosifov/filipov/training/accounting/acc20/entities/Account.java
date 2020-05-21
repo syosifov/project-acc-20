@@ -46,15 +46,23 @@ public class Account {
     @NotNull
     private String description;
 
-    @Nullable
-    @ManyToOne
+//    @Nullable
+//    @ManyToOne
+    @Transient
     private Company company;
 
-    @Nullable
-    @ManyToOne
-    private Account parentAccount;
+//    @Nullable
+//    @ManyToOne
+    @Transient
+    private Account parentAccountA;
 
-    @OneToMany(mappedBy = "parentAccount")
+//    @Nullable
+//    @ManyToOne
+    @Transient
+    private Account parentAccountL;
+
+    //@OneToMany(mappedBy = "parentAccount")
+    @Transient
     private List<Account> childrenAccounts;
 
     public Account() {
@@ -147,12 +155,12 @@ public class Account {
     }
 
 
-    public Account getParentAccount() {
-        return parentAccount;
+    public Account getParentAccountA() {
+        return parentAccountA;
     }
 
-    public void setParentAccount(Account parentAccount) {
-        this.parentAccount = parentAccount;
+    public void setParentAccountA(Account parentAccountA) {
+        this.parentAccountA = parentAccountA;
     }
 
     public List<Account> getChildrenAccounts() {
@@ -171,6 +179,14 @@ public class Account {
         this.description = description;
     }
 
+    public Account getParentAccountL() {
+        return parentAccountL;
+    }
+
+    public void setParentAccountL(Account parentAccountL) {
+        this.parentAccountL = parentAccountL;
+    }
+
     @Override
     public String toString() {
         return "Account{" +
@@ -183,7 +199,7 @@ public class Account {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", companyName=" + company.getName() +
-                ", parentAccountName=" + parentAccount.getName() +
+                ", parentAccountName=" + parentAccountA.getName() +
 //                ", childrenAccounts=" + childrenAccounts +
                 '}';
     }
