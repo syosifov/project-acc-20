@@ -4,6 +4,7 @@ import com.sun.istack.Nullable;
 import net.yosifov.filipov.training.accounting.acc20.utils.AT;
 import net.yosifov.filipov.training.accounting.acc20.utils.C;
 
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
@@ -46,24 +47,23 @@ public class Account {
     @NotNull
     private String description;
 
-//    @Nullable
-//    @ManyToOne
-    @Transient
+    @Nullable
+    @ManyToOne
     private Company company;
 
-//    @Nullable
-//    @ManyToOne
-    @Transient
+    @Nullable
+    @ManyToOne
     private Account parentAccountA;
 
-//    @Nullable
-//    @ManyToOne
-    @Transient
+    @Nullable
+    @ManyToOne
     private Account parentAccountL;
 
-    //@OneToMany(mappedBy = "parentAccount")
-    @Transient
-    private List<Account> childrenAccounts;
+    @OneToMany(mappedBy = "parentAccountA")
+    private List<Account> childrenAccountsA;
+
+    @OneToMany(mappedBy = "parentAccountA")
+    private List<Account> childrenAccountsL;
 
     public Account() {
         this.assets = new BigDecimal("0.00");
@@ -163,12 +163,12 @@ public class Account {
         this.parentAccountA = parentAccountA;
     }
 
-    public List<Account> getChildrenAccounts() {
-        return childrenAccounts;
+    public List<Account> getChildrenAccountsA() {
+        return childrenAccountsA;
     }
 
-    public void setChildrenAccounts(List<Account> childrenAccounts) {
-        this.childrenAccounts = childrenAccounts;
+    public void setChildrenAccountsA(List<Account> childrenAccountsA) {
+        this.childrenAccountsA = childrenAccountsA;
     }
 
     public String getDescription() {
@@ -187,6 +187,15 @@ public class Account {
         this.parentAccountL = parentAccountL;
     }
 
+
+    public List<Account> getChildrenAccountsL() {
+        return childrenAccountsL;
+    }
+
+    public void setChildrenAccountsL(List<Account> childrenAccountsL) {
+        this.childrenAccountsL = childrenAccountsL;
+    }
+
     @Override
     public String toString() {
         return "Account{" +
@@ -199,8 +208,8 @@ public class Account {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", companyName=" + company.getName() +
-                ", parentAccountName=" + parentAccountA.getName() +
-//                ", childrenAccounts=" + childrenAccounts +
+//                ", parentAccountAName=" + parentAccountA.getName() +
+//                ", parentAccountLName=" + parentAccountL.getName() +
                 '}';
     }
 }

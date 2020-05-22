@@ -32,8 +32,8 @@ public class Bussiness {
         account.setLastModified(LocalDate.now());
         account.setName("Balance " + LocalDate.now().getYear());
         account.setAt(AT.AL);
-        accountsRep.save(account);
         company.setCurrentAccount(account);
+        accountsRep.save(account);
         companiesRep.save(company);
 
 
