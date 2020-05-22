@@ -36,26 +36,32 @@ public class Bussiness {
         accountsRep.save(account);
         companiesRep.save(company);
 
+        addChild(account, AT.A,"a1");
+        addChild(account, AT.L,"l1");
+        addChild(account, AT.AL,"al1");
 
-//        Account a1 = new Account();
-//        a1.setLastModified(LocalDate.now());
-//        a1.setAt(AT.A);
-//        a1.setName("a1");
-//        a1.setParentAccountA(account);
-//        accountsRep.save(a1);
-//
-//        Account l1 = new Account();
-//        l1.setLastModified(LocalDate.now());
-//        l1.setAt(AT.L);
-//        l1.setName("l1");
-//        l1.setParentAccountA(account);
-//        accountsRep.save(l1);
-//
-//        Account al1 = new Account();
-//        al1.setLastModified(LocalDate.now());
-//        al1.setAt(AT.AL);
-//        al1.setName("al1");
-//        al1.setParentAccountA(account);
-//        accountsRep.save(al1);
+    }
+
+    public Account addChild(Account account,
+                            AT at,
+                            String name) {
+
+        Account acc = new Account();
+        acc.setLastModified(LocalDate.now());
+        acc.setAt(at);
+        acc.setName(account.getName()+","+name);
+        switch (at) {
+            case A:
+            case AL:
+                acc.setParentAccountA(account);
+                break;
+            case L:
+                acc.setParentAccountL(account);
+                break;
+            default: throw new RuntimeException("Invalid type");
+        }
+        accountsRep.save(acc);
+
+        return null;
     }
 }
