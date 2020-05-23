@@ -30,15 +30,22 @@ public class Bussiness {
         Account account = new Account();
         account.setCompany(company);
         account.setLastModified(LocalDate.now());
-        account.setName("Balance " + LocalDate.now().getYear());
+        account.setName("R");
+        account.setDescription("Balance " + LocalDate.now().getYear());
         account.setAt(AT.AL);
         company.setCurrentAccount(account);
         accountsRep.save(account);
         companiesRep.save(company);
 
-        addChild(account, AT.A,"a1");
-        addChild(account, AT.L,"l1");
         addChild(account, AT.AL,"al1");
+
+        Account a1 = addChild(account, AT.A,"a1");
+        addChild(a1, AT.A,"a11");
+        addChild(a1, AT.A,"a12");
+
+        Account a2 = addChild(account, AT.L,"l1");
+        addChild(a2, AT.A,"a21");
+        addChild(a2, AT.A,"a22");
 
     }
 
@@ -60,8 +67,9 @@ public class Bussiness {
                 break;
             default: throw new RuntimeException("Invalid type");
         }
+        acc.setCompany(account.getCompany());
         accountsRep.save(acc);
 
-        return null;
+        return acc;
     }
 }
