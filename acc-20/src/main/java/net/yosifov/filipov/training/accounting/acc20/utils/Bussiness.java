@@ -38,41 +38,66 @@ public class Bussiness {
         accountsRep.save(account);
         companiesRep.save(company);
 
-        Account al1  = addChild(account, AT.AL,"al1");
+        //Account al1  = addChild(account, AT.AL,"al1");
 
-        Account a1  = addChild(account, AT.A,"a1");
-        Account a11 = addChild(a1, AT.A,"a11");
-        Account a12 = addChild(a1, AT.A,"a12");
+        Account a1  = addChild(account,null, AT.A,"a1");
+        Account a11 = addChild( a1, null, AT.A,"a11");
+        Account accLost = addChild(a1, null, AT.A,"Lost");
 
-        Account l1  = addChild(account, AT.L,"l1");
-        Account l11 = addChild(l1, AT.L,"l11");
-        Account l12 = addChild(l1, AT.L,"l12");
+        Account l1  = addChild(null, account, AT.L,"L1");
+        Account l11 = addChild(null, l1, AT.L,"L11");
+        Account accProfit = addChild(null, l1, AT.L,"Profit");
 
-        assign(a11,l11,BigDecimal.valueOf(5));
-        assign(a12,l12,BigDecimal.valueOf(15));
-//        assign(a11,al1,BigDecimal.valueOf(5));
+        Account accComb  = addChild(accLost, accProfit, AT.AL,"AL");
+
+        assign(a11,l11,BigDecimal.valueOf(1000));
+        assign(a1,accComb,BigDecimal.valueOf(5));   // generates profit
+        assign(accComb,l1,BigDecimal.valueOf(15));  // generates loss
+        assign(a11,accLost,BigDecimal.valueOf(3));
+        assign(a11,accLost,BigDecimal.valueOf(3));
 
     }
 
-    public Account addChild(Account account,
+    public Account addChild(Account accA,
+                            Account accL,
                             AT at,
                             String name) {
 
         Account acc = new Account();
         acc.setLastModified(LocalDate.now());
         acc.setAt(at);
-        acc.setName(account.getName()+","+name);
         switch (at) {
             case A:
+                if(null==accA) {
+                    throw new RuntimeException("Parent account must not be null");
+                }
+                acc.setParentAccountA(accA);
+                acc.setName(accA.getName()+","+name);
+                acc.setCompany(accA.getCompany());
+                break;
             case AL:
-                acc.setParentAccountA(account);
+                if(null==accA) {
+                    throw new RuntimeException("Parent account must not be null");
+                }
+                acc.setParentAccountA(accA);
+                if(null==accL) {
+                    throw new RuntimeException("Parent account must not be null");
+                }
+                acc.setParentAccountL(accL);
+                acc.setName(name);
+                acc.setCompany(accA.getCompany());
                 break;
             case L:
-                acc.setParentAccountL(account);
+                if(null==accL) {
+                    throw new RuntimeException("Parent account must not be null");
+                }
+                acc.setParentAccountL(accL);
+                acc.setName(accL.getName()+","+name);
+                acc.setCompany(accL.getCompany());
                 break;
-            default: throw new RuntimeException("Invalid type");
+            default: throw new RuntimeException("Invalid Account Type");
         }
-        acc.setCompany(account.getCompany());
+
         accountsRep.save(acc);
 
         return acc;
