@@ -5,7 +5,6 @@ import net.yosifov.filipov.training.accounting.acc20.system.serialization.JSonPa
 import net.yosifov.filipov.training.accounting.acc20.system.serialization.JSonResult;
 
 public class UserManagementService implements IUserManagement {
-
     @Override
     public JSonResult CreateUser(String userName, String Password, JSonParam param) {
         return null;
