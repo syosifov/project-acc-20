@@ -24,4 +24,10 @@ public class UserManagementService implements IUserManagement {
     public JSonResult DisableUser(String userName) {
         return null;
     }
+
+    @Override
+    public JSonResult GetDeclRegistrationForm() {
+        return null;
+    }
+
 }

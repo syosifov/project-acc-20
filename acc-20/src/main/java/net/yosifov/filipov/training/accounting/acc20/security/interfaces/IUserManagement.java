@@ -9,4 +9,6 @@ public interface IUserManagement {
     JSonResult CreateUser(String userName, String Password, String Name);
     JSonResult DeleteUser(String userName);
     JSonResult DisableUser(String userName);
+    //// Get delcaration for structure
+    JSonResult GetDeclRegistrationForm();
 }
