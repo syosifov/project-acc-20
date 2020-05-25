@@ -1,0 +1,23 @@
+Backend
+    security
+        login
+        user managements
+            add
+            remove
+    serializatin
+    accounting
+        wherehouse
+        universal level of anialitcs level
+        operation autimator - shedulred
+        operation autimator - trigered
+    reports
+        teble
+        chart
+Frontedn
+    login
+    make operation
+
+
+
+
+
