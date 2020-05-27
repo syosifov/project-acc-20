@@ -40,15 +40,15 @@ public class Bussiness {
 
         //Account al1  = addChild(account, AT.AL,"al1");
 
-        Account a1  = addChild(account,null, AT.A,"a1");
-        Account a11 = addChild( a1, null, AT.A,"a11");
-        Account accLost = addChild(a1, null, AT.A,"Lost");
+        Account a1  = addChildAccount(account, AT.A,"a1");
+        Account a11 = addChildAccount( a1, AT.A,"a11");
+        Account accLost = addChildAccount(a1, AT.A,"Lost");
 
-        Account l1  = addChild(null, account, AT.L,"L1");
-        Account l11 = addChild(null, l1, AT.L,"L11");
-        Account accProfit = addChild(null, l1, AT.L,"Profit");
+        Account l1  = addChildAccount(account, AT.L,"L1");
+        Account l11 = addChildAccount(l1, AT.L,"L11");
+        Account accProfit = addChildAccount(l1, AT.L,"Profit");
 
-        Account accComb  = addChild(accLost, accProfit, AT.AL,"AL");
+        Account accComb  = addALAccount(accLost, accProfit, "AL");
 
         assign(a11,l11,BigDecimal.valueOf(1000));
         assign(a1,accComb,BigDecimal.valueOf(5));   // generates profit
@@ -58,48 +58,49 @@ public class Bussiness {
 
     }
 
-    public Account addChild(Account accA,
-                            Account accL,
-                            AT at,
-                            String name) {
-
+    public Account addChildAccount(Account parent,
+                                   AT at,
+                                   String name) {
         Account acc = new Account();
         acc.setLastModified(LocalDate.now());
+        if(at.equals(AT.AL)) {
+            throw new RuntimeException("Wrong Account type: "+at);
+        }
+        if(!at.equals(parent.getAt()) && !AT.AL.equals(parent.getAt())) {
+            throw new RuntimeException("Wrong Account type: "+at);
+        }
         acc.setAt(at);
+        acc.setCompany(parent.getCompany());
+        acc.setName(parent.getName()+","+name);
         switch (at) {
             case A:
-                if(null==accA) {
-                    throw new RuntimeException("Parent account must not be null");
-                }
-                acc.setParentAccountA(accA);
-                acc.setName(accA.getName()+","+name);
-                acc.setCompany(accA.getCompany());
-                break;
-            case AL:
-                if(null==accA) {
-                    throw new RuntimeException("Parent account must not be null");
-                }
-                acc.setParentAccountA(accA);
-                if(null==accL) {
-                    throw new RuntimeException("Parent account must not be null");
-                }
-                acc.setParentAccountL(accL);
-                acc.setName(name);
-                acc.setCompany(accA.getCompany());
+                acc.setParentAccountA(parent);
                 break;
             case L:
-                if(null==accL) {
-                    throw new RuntimeException("Parent account must not be null");
-                }
-                acc.setParentAccountL(accL);
-                acc.setName(accL.getName()+","+name);
-                acc.setCompany(accL.getCompany());
+                acc.setParentAccountL(parent);
                 break;
-            default: throw new RuntimeException("Invalid Account Type");
+            default:
+                throw new RuntimeException("Wrong Account type: "+at);
         }
+        return acc;
+    }
 
-        accountsRep.save(acc);
-
+    public Account addALAccount(Account accA,
+                                Account accL,
+                                String name) {
+        if(!accA.getAt().equals(AT.A)) {
+            throw new RuntimeException("Wrong Account type: "+accA.getAt());
+        }
+        if(!accL.getAt().equals(AT.L)) {
+            throw new RuntimeException("Wrong Account type: "+accL.getAt());
+        }
+        Account acc = new Account();
+        acc.setLastModified(LocalDate.now());
+        acc.setAt(AT.AL);
+        acc.setName(name);
+        acc.setParentAccountA(accA);
+        acc.setParentAccountL(accL);
+        acc.setCompany(accA.getCompany());
         return acc;
     }
 
