@@ -7,7 +7,6 @@ import net.yosifov.filipov.training.accounting.acc20.utils.C;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Null;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
