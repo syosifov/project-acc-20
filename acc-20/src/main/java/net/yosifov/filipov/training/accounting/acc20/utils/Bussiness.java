@@ -2,14 +2,17 @@ package net.yosifov.filipov.training.accounting.acc20.utils;
 
 import net.yosifov.filipov.training.accounting.acc20.entities.Account;
 import net.yosifov.filipov.training.accounting.acc20.entities.Company;
+import net.yosifov.filipov.training.accounting.acc20.entities.LedgerRec;
 import net.yosifov.filipov.training.accounting.acc20.repositories.AccountsRep;
 import net.yosifov.filipov.training.accounting.acc20.repositories.CompaniesRep;
+import net.yosifov.filipov.training.accounting.acc20.repositories.LedgerRecRep;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Component
 public class Bussiness {
@@ -17,6 +20,8 @@ public class Bussiness {
     private CompaniesRep companiesRep;
     @Autowired
     private AccountsRep accountsRep;
+    @Autowired
+    private LedgerRecRep ledgerRecRep;
 
     public Bussiness() {
     }
@@ -24,10 +29,13 @@ public class Bussiness {
     @Transactional
     public void install(String name,
                         String address,
-                        String taxCode) {
+                        String taxCode,
+                        Integer fiscalYear) {
         Company company = new Company(name,
                                       address,
-                                      taxCode);
+                                      taxCode,
+                                      fiscalYear
+                                    );
         Account account = new Account();
         account.setCompany(company);
         account.setLastModified(LocalDate.now());
@@ -37,8 +45,6 @@ public class Bussiness {
         company.setCurrentAccount(account);
         accountsRep.save(account);
         companiesRep.save(company);
-
-        //Account al1  = addChild(account, AT.AL,"al1");
 
         Account a1  = addChildAccount(account, AT.A,"a1");
         Account a11 = addChildAccount( a1, AT.A,"a11");
@@ -56,6 +62,47 @@ public class Bussiness {
         assign(a11,accLost,BigDecimal.valueOf(3));
         assign(a11,accLost,BigDecimal.valueOf(3));
 
+        long currRecId = getRecNumb(company,  2020);
+        addLedgerRec(++currRecId,
+                new BigDecimal("100.00"),
+                "First Record",
+                company,
+                2020);
+        currRecId = getRecNumb(company, 2020);
+        addLedgerRec(++currRecId,
+                new BigDecimal("200.00"),
+                "Second Record",
+                company,
+                2020);
+    }
+
+    private void addLedgerRec(Long recId,
+                              BigDecimal amount,
+                              String description,
+                              Company company,
+                              Integer fiscalYear) {
+
+        LedgerRec ledgerRec = new LedgerRec(recId,
+                                            amount,
+                                            LocalDateTime.now(),
+                                            description,
+                                            company,
+                                            fiscalYear
+                                           );
+
+        ledgerRecRep.save(ledgerRec);
+    }
+
+    private Long getRecNumb(Company company, int i) {
+        LedgerRec ledgerRec =
+                ledgerRecRep
+                    .findFirstByFiscalYearAndCompanyOrderByIdDesc(
+                            2020,
+                            company);
+        if(null==ledgerRec) {
+            return 0L;
+        }
+        return ledgerRec.getRecId();
     }
 
     public Account addChildAccount(Account parent,

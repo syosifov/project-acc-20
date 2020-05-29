@@ -2,6 +2,7 @@ package net.yosifov.filipov.training.accounting.acc20.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "companies")
@@ -22,13 +23,19 @@ public class Company {
     @OneToOne
     private Account currentAccount;
 
+    @NotNull
+    private Integer currentFiscalYear;
+
     public Company() {
+        this.currentFiscalYear = LocalDate.now().getYear();
     }
 
-    public Company(String name, String address, String taxCode) {
+    public Company(String name, String address, String taxCode, Integer currentFiscalYear) {
+
         this.name = name;
         this.address = address;
         this.taxCode = taxCode;
+        this.currentFiscalYear = currentFiscalYear;
     }
 
     public Long getId() {
@@ -69,6 +76,15 @@ public class Company {
 
     public void setCurrentAccount(Account currentAccount) {
         this.currentAccount = currentAccount;
+    }
+
+
+    public Integer getCurrentFiscalYear() {
+        return currentFiscalYear;
+    }
+
+    public void setCurrentFiscalYear(Integer currentFiscalYear) {
+        this.currentFiscalYear = currentFiscalYear;
     }
 
     @Override

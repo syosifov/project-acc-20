@@ -22,8 +22,8 @@ public class JpaTest {
     public void companyTest() {
 
         //companiesRep.deleteAll();
-        companiesRep.save(new Company("Company 1", "Address 1", "1111111112"));
-        companiesRep.save(new Company("Company 1", "Address 1", "1111111113"));
+        companiesRep.save(new Company("Company 1", "Address 1", "1111111112",2020));
+        companiesRep.save(new Company("Company 1", "Address 1", "1111111113",2020));
 
 
         List<Company> lst = companiesRep.findAll();

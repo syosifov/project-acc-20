@@ -1,11 +1,13 @@
 package net.yosifov.filipov.training.accounting.acc20.entities;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Entity
 public class LedgerRec {
 
     @Id
@@ -20,6 +22,8 @@ public class LedgerRec {
 
     private String description;
 
+    private Integer fiscalYear;
+
     @ManyToOne
     private Company company;
 
@@ -27,18 +31,21 @@ public class LedgerRec {
         amount = BigDecimal.ZERO;
         localDateTime = LocalDateTime.now();
         recId = 0L;
+        fiscalYear = localDateTime.getYear();
     }
 
     public LedgerRec(Long recId,
                      BigDecimal amount,
                      LocalDateTime localDateTime,
                      String description,
-                     Company company) {
+                     Company company,
+                     Integer fiscalYear) {
         this.recId = recId;
         this.amount = amount;
         this.localDateTime = localDateTime;
         this.description = description;
         this.company = company;
+        this.fiscalYear = fiscalYear;
     }
 
     public Long getId() {
@@ -87,5 +94,26 @@ public class LedgerRec {
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public Integer getFiscalYear() {
+        return fiscalYear;
+    }
+
+    public void setFiscalYear(Integer fiscalYear) {
+        this.fiscalYear = fiscalYear;
+    }
+
+    @Override
+    public String toString() {
+        return "LedgerRec{" +
+                "id=" + id +
+                ", recId=" + recId +
+                ", amount=" + amount +
+                ", localDateTime=" + localDateTime +
+                ", description='" + description + '\'' +
+                ", fiscalYear=" + fiscalYear +
+                ", company=" + company +
+                '}';
     }
 }
