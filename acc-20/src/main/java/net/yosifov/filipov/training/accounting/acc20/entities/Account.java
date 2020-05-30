@@ -196,6 +196,47 @@ public class Account {
         this.childrenAccountsL = childrenAccountsL;
     }
 
+    protected void recap() {
+        switch (at) {
+            case A:
+                balance = assets.subtract(liabilities);
+                break;
+            case L:
+                balance = liabilities.subtract(assets);
+                break;
+            default:
+                balance = assets.subtract(liabilities);
+        }
+
+    }
+
+    public void debit(BigDecimal v){
+        assets = assets.add(v);
+        recap();
+    }
+
+    public void credit(BigDecimal v){
+        liabilities = liabilities.add(v);
+        recap();
+    }
+
+    public Account getUpperAccount() {
+        switch (at){
+            case A:
+                return getParentAccountA();
+            case L:
+                return getParentAccountL();
+            case AL:
+                if(balance.compareTo(BigDecimal.ZERO) >=0){
+                    return getParentAccountA();
+                }
+                else {
+                    return getParentAccountL();
+                }
+        }
+        return null;
+    }
+
     @Override
     public String toString() {
         return "Account{" +
