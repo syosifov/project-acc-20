@@ -1,13 +1,7 @@
 package net.yosifov.filipov.training.accounting.acc20.utils;
 
-import net.yosifov.filipov.training.accounting.acc20.entities.Account;
-import net.yosifov.filipov.training.accounting.acc20.entities.Company;
-import net.yosifov.filipov.training.accounting.acc20.entities.LedgerRec;
-import net.yosifov.filipov.training.accounting.acc20.entities.LedgerRecDetail;
-import net.yosifov.filipov.training.accounting.acc20.repositories.AccountsRep;
-import net.yosifov.filipov.training.accounting.acc20.repositories.CompaniesRep;
-import net.yosifov.filipov.training.accounting.acc20.repositories.LedgerRecDetailRep;
-import net.yosifov.filipov.training.accounting.acc20.repositories.LedgerRecRep;
+import net.yosifov.filipov.training.accounting.acc20.entities.*;
+import net.yosifov.filipov.training.accounting.acc20.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -26,6 +20,8 @@ public class Bussiness {
     private LedgerRecRep ledgerRecRep;
     @Autowired
     private LedgerRecDetailRep ledgerRecDetailRep;
+    @Autowired
+    private AccountHistoryRep accountHistoryRep;
 
     public Bussiness() {
     }
@@ -60,25 +56,14 @@ public class Bussiness {
 
         Account accComb  = addALAccount(accLost, accProfit, "AL");
 
-//        assign(a11,l11,BigDecimal.valueOf(1000));
 //        assign(a1,accComb,BigDecimal.valueOf(5));   // generates profit
 //        assign(accComb,l1,BigDecimal.valueOf(15));  // generates loss
 //        assign(a11,accLost,BigDecimal.valueOf(3));
 //        assign(a11,accLost,BigDecimal.valueOf(3));
 
-        assign(a11,l11,BigDecimal.valueOf(100),company,"First Record");
-//        long currRecId = getRecNumb(company);
-//        addLedgerRec(
-//                new BigDecimal("100.00"),
-//                "First Record",
-//                company
-//        );
-//        currRecId = getRecNumb(company, 2020);
-//        addLedgerRec(++currRecId,
-//                new BigDecimal("200.00"),
-//                "Second Record",
-//                company,
-//                2020);
+        assign(a11,l11,BigDecimal.valueOf(1000),company,"First Record");
+        assign(a11,l11,BigDecimal.valueOf(100),company,"Second Record");
+
     }
 
     private LedgerRec addLedgerRec(BigDecimal amount,
@@ -161,18 +146,49 @@ public class Bussiness {
     @Transactional
     public void assign(Account accDebit,
                        Account accCredit,
-                       BigDecimal v){
+                       BigDecimal v,
+                       LedgerRecDetail ledgerRecDetail){
         Account account = accDebit;
         while (null != account){
-            account.debit(v);
+            AccountHistory accountHistory = new AccountHistory();
+            accountHistory.setAccount(account);
+            accountHistory.setCompany(account.getCompany());
+            accountHistory.setLedgerRecDetail(ledgerRecDetail);
+
+            accountHistory.setInitialBalance(account.getBalance());
+            accountHistory.setInitialAssets(account.getAssets());
+            accountHistory.setInitialLiabilities(account.getLiabilities());
+
+            account.debit(v); //TODO replace with lambda
+
+            accountHistory.setEndBalance(account.getBalance());
+            accountHistory.setEndAssets(account.getAssets());
+            accountHistory.setEndLiabilities(account.getLiabilities());
+
             accountsRep.save(account);
+            accountHistoryRep.save(accountHistory);
             account = account.getUpperAccount();
         }
 
         account = accCredit;
         while (null != account){
+            AccountHistory accountHistory = new AccountHistory();
+            accountHistory.setAccount(account);
+            accountHistory.setCompany(account.getCompany());
+            accountHistory.setLedgerRecDetail(ledgerRecDetail);
+
+            accountHistory.setInitialBalance(account.getBalance());
+            accountHistory.setInitialAssets(account.getAssets());
+            accountHistory.setInitialLiabilities(account.getLiabilities());
+
             account.credit(v);
+
+            accountHistory.setEndBalance(account.getBalance());
+            accountHistory.setEndAssets(account.getAssets());
+            accountHistory.setEndLiabilities(account.getLiabilities());
+
             accountsRep.save(account);
+            accountHistoryRep.save(accountHistory);
             account = account.getUpperAccount();
         }
 
@@ -192,6 +208,6 @@ public class Bussiness {
                                                               v,
                                                               ledgerRec);
         ledgerRecDetailRep.save(ledgerRecDetail);
-        assign(accDebit,accCredit,v);
+        assign(accDebit,accCredit,v, ledgerRecDetail);
     }
 }
