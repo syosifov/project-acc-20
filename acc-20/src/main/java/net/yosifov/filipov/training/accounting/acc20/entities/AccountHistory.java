@@ -1,6 +1,7 @@
 package net.yosifov.filipov.training.accounting.acc20.entities;
 
 import net.yosifov.filipov.training.accounting.acc20.utils.C;
+import net.yosifov.filipov.training.accounting.acc20.utils.Op;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -43,6 +44,9 @@ public class AccountHistory {
     @ManyToOne
     private Company company;
 
+    @NotNull
+    private Op op;
+
     public AccountHistory() {}
 
     public AccountHistory(Account account,
@@ -53,6 +57,7 @@ public class AccountHistory {
                           @NotNull BigDecimal endLiabilities,
                           @NotNull BigDecimal endBalance,
                           @NotNull LedgerRecDetail ledgerRecDetail,
+                          @NotNull Op op,
                           Company company) {
         this.account = account;
         this.initialAssets = initialAssets;
@@ -63,6 +68,7 @@ public class AccountHistory {
         this.endBalance = endBalance;
         this.ledgerRecDetail = ledgerRecDetail;
         this.company = company;
+        this.op = op;
     }
 
     public Long getId() {
@@ -143,6 +149,14 @@ public class AccountHistory {
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public Op getOp() {
+        return op;
+    }
+
+    public void setOp(Op op) {
+        this.op = op;
     }
 
     @Override

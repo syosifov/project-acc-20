@@ -62,7 +62,7 @@ public class Bussiness {
 //        assign(a11,accLost,BigDecimal.valueOf(3));
 
         assign(a11,l11,BigDecimal.valueOf(1000),company,"First Record");
-        assign(a11,l11,BigDecimal.valueOf(100),company,"Second Record");
+//        assign(a11,l11,BigDecimal.valueOf(100),company,"Second Record");
 
     }
 
@@ -150,48 +150,48 @@ public class Bussiness {
                        LedgerRecDetail ledgerRecDetail){
         Account account = accDebit;
         while (null != account){
-            AccountHistory accountHistory = new AccountHistory();
-            accountHistory.setAccount(account);
-            accountHistory.setCompany(account.getCompany());
-            accountHistory.setLedgerRecDetail(ledgerRecDetail);
-
-            accountHistory.setInitialBalance(account.getBalance());
-            accountHistory.setInitialAssets(account.getAssets());
-            accountHistory.setInitialLiabilities(account.getLiabilities());
-
-            account.debit(v); //TODO replace with lambda
-
-            accountHistory.setEndBalance(account.getBalance());
-            accountHistory.setEndAssets(account.getAssets());
-            accountHistory.setEndLiabilities(account.getLiabilities());
-
-            accountsRep.save(account);
-            accountHistoryRep.save(accountHistory);
+            registerOp(account, v, Op.Debit, ledgerRecDetail);
             account = account.getUpperAccount();
         }
 
         account = accCredit;
         while (null != account){
-            AccountHistory accountHistory = new AccountHistory();
-            accountHistory.setAccount(account);
-            accountHistory.setCompany(account.getCompany());
-            accountHistory.setLedgerRecDetail(ledgerRecDetail);
-
-            accountHistory.setInitialBalance(account.getBalance());
-            accountHistory.setInitialAssets(account.getAssets());
-            accountHistory.setInitialLiabilities(account.getLiabilities());
-
-            account.credit(v);
-
-            accountHistory.setEndBalance(account.getBalance());
-            accountHistory.setEndAssets(account.getAssets());
-            accountHistory.setEndLiabilities(account.getLiabilities());
-
-            accountsRep.save(account);
-            accountHistoryRep.save(accountHistory);
+            registerOp(account, v, Op.Credit, ledgerRecDetail);
             account = account.getUpperAccount();
         }
 
+    }
+
+    private void registerOp(Account account, BigDecimal v, Op op, LedgerRecDetail ledgerRecDetail) {
+        AccountHistory accountHistory = new AccountHistory();
+        accountHistory.setAccount(account);
+        accountHistory.setCompany(account.getCompany());
+        accountHistory.setLedgerRecDetail(ledgerRecDetail);
+
+        accountHistory.setInitialBalance(account.getBalance());
+        accountHistory.setInitialAssets(account.getAssets());
+        accountHistory.setInitialLiabilities(account.getLiabilities());
+
+        switch (op){
+            case Debit:
+            case ReverseDebit:
+                account.debit(v);
+                accountHistory.setEndBalance(account.getBalance());
+                accountHistory.setEndAssets(account.getAssets());
+                accountHistory.setEndLiabilities(account.getLiabilities());
+                break;
+            case Credit:
+            case ReverseCredit:
+                account.credit(v);
+                accountHistory.setEndBalance(account.getBalance());
+                accountHistory.setEndAssets(account.getAssets());
+                accountHistory.setEndLiabilities(account.getLiabilities());
+                break;
+        }
+
+        accountHistory.setOp(op);
+        accountsRep.save(account);
+        accountHistoryRep.save(accountHistory);
     }
 
     @Transactional
