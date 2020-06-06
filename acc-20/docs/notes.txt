@@ -9,5 +9,3 @@ https://reflectoring.io/spring-boot-test/
 Automatic Rollback of Transactions in Spring Tests
 https://relentlesscoding.com/2020/03/01/automatic-rollback-of-transactions-in-spring-tests/
 
-SELECT * FROM ACCOUNT_HISTORY where account_id=4
-SELECT * FROM ACCOUNT_HISTORY where account_id in ( 4, 7)

@@ -22,6 +22,7 @@ public class Bussiness {
     private LedgerRecDetailRep ledgerRecDetailRep;
     @Autowired
     private AccountHistoryRep accountHistoryRep;
+    private LedgerRec refLedgerRec;
 
     public Bussiness() {
     }
@@ -30,7 +31,7 @@ public class Bussiness {
     public void install(String name,
                         String address,
                         String taxCode,
-                        Integer fiscalYear) {
+                        Integer fiscalYear) throws Exception {
         Company company = new Company(name,
                                       address,
                                       taxCode,
@@ -61,14 +62,16 @@ public class Bussiness {
 //        assign(a11,accLost,BigDecimal.valueOf(3));
 //        assign(a11,accLost,BigDecimal.valueOf(3));
 
-        assign(a11,l11,BigDecimal.valueOf(1000),company,"First Record");
-//        assign(a11,l11,BigDecimal.valueOf(100),company,"Second Record");
+        assign(a11,l11,BigDecimal.valueOf(1000),company,"First Record",null);
+        assign(a11,l11,BigDecimal.valueOf(100),company,"Second Record",null);
+        assign(a11,l11,BigDecimal.valueOf(-100),company,"Second Record",refLedgerRec);
 
     }
 
     private LedgerRec addLedgerRec(BigDecimal amount,
                                    String description,
-                                   Company company) {
+                                   Company company,
+                                   LedgerRec refLedgerRec) {
 
         Long recId = getRecNumb(company);
         LedgerRec ledgerRec = new LedgerRec(++recId,
@@ -76,7 +79,8 @@ public class Bussiness {
                                             LocalDateTime.now(),
                                             description,
                                             company,
-                                            company.getCurrentFiscalYear()
+                                            company.getCurrentFiscalYear(),
+                                            refLedgerRec
                                            );
 
         ledgerRecRep.save(ledgerRec);
@@ -159,8 +163,27 @@ public class Bussiness {
             registerOp(account, v, Op.Credit, ledgerRecDetail);
             account = account.getUpperAccount();
         }
-
     }
+
+    @Transactional
+    public void reverseAssign(Account accDebit,
+                       Account accCredit,
+                       BigDecimal v,
+                       LedgerRecDetail ledgerRecDetail){
+        Account account = accDebit;
+        while (null != account){
+            registerOp(account, v, Op.ReverseDebit, ledgerRecDetail);
+            account = account.getUpperAccount();
+        }
+
+        account = accCredit;
+        while (null != account){
+            registerOp(account, v, Op.ReverseCredit, ledgerRecDetail);
+            account = account.getUpperAccount();
+        }
+    }
+
+
 
     private void registerOp(Account account, BigDecimal v, Op op, LedgerRecDetail ledgerRecDetail) {
         AccountHistory accountHistory = new AccountHistory();
@@ -199,14 +222,31 @@ public class Bussiness {
                        Account accCredit,
                        BigDecimal v,
                        Company company,
-                       String description) {
-        LedgerRec ledgerRec = addLedgerRec(v,
-                                           description,
-                                           company);
+                       String description,
+                       LedgerRec refLedgerRec) throws Exception {
+        if(v.compareTo(BigDecimal.ZERO)>0) {
+            if(refLedgerRec != null) {
+                throw new Exception("Argument refLedgerRec shoud be not null on reverse transactions only");
+            }
+        }
+        else
+        if(v.compareTo(BigDecimal.ZERO)< 0) {
+            if(refLedgerRec == null) {
+                throw new Exception("Argument refLedgerRec shoud be not null on reverse transactions");
+            }
+        }
+        else
+        if(v.compareTo(BigDecimal.ZERO)==0){
+            throw new Exception("The transaction's ampount must not be Zero");
+        }
+        this.refLedgerRec = addLedgerRec(v,
+                                 description,
+                                 company,
+                                 refLedgerRec);
         LedgerRecDetail ledgerRecDetail = new LedgerRecDetail(accDebit,
                                                               accCredit,
                                                               v,
-                                                              ledgerRec);
+                this.refLedgerRec);
         ledgerRecDetailRep.save(ledgerRecDetail);
         assign(accDebit,accCredit,v, ledgerRecDetail);
     }

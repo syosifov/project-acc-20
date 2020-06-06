@@ -1,9 +1,8 @@
 package net.yosifov.filipov.training.accounting.acc20.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import com.sun.istack.Nullable;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -24,6 +23,10 @@ public class LedgerRec {
 
     private Integer fiscalYear;
 
+    @Nullable
+    @OneToOne
+    private LedgerRec refLedgerRec;
+
     @ManyToOne
     private Company company;
 
@@ -39,13 +42,15 @@ public class LedgerRec {
                      LocalDateTime localDateTime,
                      String description,
                      Company company,
-                     Integer fiscalYear) {
+                     Integer fiscalYear,
+                     LedgerRec refLedgerRec) {
         this.recId = recId;
         this.amount = amount;
         this.localDateTime = localDateTime;
         this.description = description;
         this.company = company;
         this.fiscalYear = fiscalYear;
+        this.refLedgerRec = refLedgerRec;
     }
 
     public Long getId() {
@@ -104,6 +109,14 @@ public class LedgerRec {
         this.fiscalYear = fiscalYear;
     }
 
+    public LedgerRec getRefLedgerRec() {
+        return refLedgerRec;
+    }
+
+    public void setRefLedgerRec(LedgerRec refLedgerRec) {
+        this.refLedgerRec = refLedgerRec;
+    }
+
     @Override
     public String toString() {
         return "LedgerRec{" +
@@ -116,4 +129,19 @@ public class LedgerRec {
                 ", company=" + company +
                 '}';
     }
+
+
+//    @Override
+//    public String toString() {
+//        return "LedgerRec{" +
+//                "id=" + id +
+//                ", recId=" + recId +
+//                ", amount=" + amount +
+//                ", localDateTime=" + localDateTime +
+//                ", description='" + description + '\'' +
+//                ", fiscalYear=" + fiscalYear +
+//                ", refLedgerRec=" + refLedgerRec +
+//                ", company=" + company +
+//                '}';
+//    }
 }
