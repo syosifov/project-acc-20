@@ -55,7 +55,7 @@ public class Bussiness {
         Account l11 = addChildAccount(l1, AT.L,"L11");
         Account accProfit = addChildAccount(l1, AT.L,"Profit");
 
-        Account accComb  = addALAccount(accLost, accProfit, "AL");
+//        Account accComb  = addALAccount(accLost, accProfit, "AL");
 
 //        assign(a1,accComb,BigDecimal.valueOf(5));   // generates profit
 //        assign(accComb,l1,BigDecimal.valueOf(15));  // generates loss
@@ -104,48 +104,33 @@ public class Bussiness {
                                    String name) {
         Account acc = new Account();
         acc.setLastModified(LocalDate.now());
-        if(at.equals(AT.AL)) {
-            throw new RuntimeException("Wrong Account type: "+at);
-        }
-        if(!at.equals(parent.getAt()) && !AT.AL.equals(parent.getAt())) {
-            throw new RuntimeException("Wrong Account type: "+at);
-        }
         acc.setAt(at);
         acc.setCompany(parent.getCompany());
         acc.setName(parent.getName()+","+name);
-        switch (at) {
-            case A:
-                acc.setParentAccountA(parent);
-                break;
-            case L:
-                acc.setParentAccountL(parent);
-                break;
-            default:
-                throw new RuntimeException("Wrong Account type: "+at);
-        }
+        acc.setParentAccount(parent);
         accountsRep.save(acc);
         return acc;
     }
 
-    public Account addALAccount(Account accA,
-                                Account accL,
-                                String name) {
-        if(!accA.getAt().equals(AT.A)) {
-            throw new RuntimeException("Wrong Account type: "+accA.getAt());
-        }
-        if(!accL.getAt().equals(AT.L)) {
-            throw new RuntimeException("Wrong Account type: "+accL.getAt());
-        }
-        Account acc = new Account();
-        acc.setLastModified(LocalDate.now());
-        acc.setAt(AT.AL);
-        acc.setName(name);
-        acc.setParentAccountA(accA);
-        acc.setParentAccountL(accL);
-        acc.setCompany(accA.getCompany());
-        accountsRep.save(acc);
-        return acc;
-    }
+//    public Account addALAccount(Account accA,
+//                                Account accL,
+//                                String name) {
+//        if(!accA.getAt().equals(AT.A)) {
+//            throw new RuntimeException("Wrong Account type: "+accA.getAt());
+//        }
+//        if(!accL.getAt().equals(AT.L)) {
+//            throw new RuntimeException("Wrong Account type: "+accL.getAt());
+//        }
+//        Account acc = new Account();
+//        acc.setLastModified(LocalDate.now());
+//        acc.setAt(AT.AL);
+//        acc.setName(name);
+//        acc.setParentAccount(accA);
+//        acc.setParentAccountL(accL);
+//        acc.setCompany(accA.getCompany());
+//        accountsRep.save(acc);
+//        return acc;
+//    }
 
     @Transactional
     public void assign(Account accDebit,
@@ -155,13 +140,13 @@ public class Bussiness {
         Account account = accDebit;
         while (null != account){
             registerOp(account, v, Op.Debit, ledgerRecDetail);
-            account = account.getUpperAccount();
+            account = account.getParentAccount();
         }
 
         account = accCredit;
         while (null != account){
             registerOp(account, v, Op.Credit, ledgerRecDetail);
-            account = account.getUpperAccount();
+            account = account.getParentAccount();
         }
     }
 
@@ -173,13 +158,13 @@ public class Bussiness {
         Account account = accDebit;
         while (null != account){
             registerOp(account, v, Op.ReverseDebit, ledgerRecDetail);
-            account = account.getUpperAccount();
+            account = account.getParentAccount();
         }
 
         account = accCredit;
         while (null != account){
             registerOp(account, v, Op.ReverseCredit, ledgerRecDetail);
-            account = account.getUpperAccount();
+            account = account.getParentAccount();
         }
     }
 

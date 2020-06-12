@@ -53,17 +53,10 @@ public class Account {
 
     @Nullable
     @ManyToOne
-    private Account parentAccountA;
+    private Account parentAccount;
 
-    @Nullable
-    @ManyToOne
-    private Account parentAccountL;
-
-    @OneToMany(mappedBy = "parentAccountA")
-    private List<Account> childrenAccountsA;
-
-    @OneToMany(mappedBy = "parentAccountA")
-    private List<Account> childrenAccountsL;
+    @OneToMany(mappedBy = "parentAccount")
+    private List<Account> childrenAccounts;
 
     public Account() {
         this.assets = new BigDecimal("0.00");
@@ -155,20 +148,20 @@ public class Account {
     }
 
 
-    public Account getParentAccountA() {
-        return parentAccountA;
+    public Account getParentAccount() {
+        return parentAccount;
     }
 
-    public void setParentAccountA(Account parentAccountA) {
-        this.parentAccountA = parentAccountA;
+    public void setParentAccount(Account parentAccount) {
+        this.parentAccount = parentAccount;
     }
 
-    public List<Account> getChildrenAccountsA() {
-        return childrenAccountsA;
+    public List<Account> getChildrenAccounts() {
+        return childrenAccounts;
     }
 
-    public void setChildrenAccountsA(List<Account> childrenAccountsA) {
-        this.childrenAccountsA = childrenAccountsA;
+    public void setChildrenAccounts(List<Account> childrenAccounts) {
+        this.childrenAccounts = childrenAccounts;
     }
 
     public String getDescription() {
@@ -177,23 +170,6 @@ public class Account {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Account getParentAccountL() {
-        return parentAccountL;
-    }
-
-    public void setParentAccountL(Account parentAccountL) {
-        this.parentAccountL = parentAccountL;
-    }
-
-
-    public List<Account> getChildrenAccountsL() {
-        return childrenAccountsL;
-    }
-
-    public void setChildrenAccountsL(List<Account> childrenAccountsL) {
-        this.childrenAccountsL = childrenAccountsL;
     }
 
     protected void recap() {
@@ -218,23 +194,6 @@ public class Account {
     public void credit(BigDecimal v){
         liabilities = liabilities.add(v);
         recap();
-    }
-
-    public Account getUpperAccount() {
-        switch (at){
-            case A:
-                return getParentAccountA();
-            case L:
-                return getParentAccountL();
-            case AL:
-                if(balance.compareTo(BigDecimal.ZERO) >=0){
-                    return getParentAccountA();
-                }
-                else {
-                    return getParentAccountL();
-                }
-        }
-        return null;
     }
 
     @Override
