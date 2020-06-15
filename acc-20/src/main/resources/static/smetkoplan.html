@@ -1,0 +1,3061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Сметкоплан</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<button >Click me!</button>
+<table>
+    <tbody>
+    <tr>
+        <td colspan="5" style="background-color: #ffcc99;">
+            <p style="font-weight: bold">раздел 1: СМЕТКИ ЗА КАПИТАЛ И   ЗАЕМИ</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" style="background-color: #ffff99;" width="540">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   10: Капитал</p>
+        </td>
+        <td style="background-color: #ffff99;" width="70">
+            <p style="text-align: center; font-weight:bold;">Вид</p>
+        </td>
+        <td style="background-color: #ffff99;" width="70">
+            <p style="text-align: center; font-weight:bold;">Анал./Синт.</p>
+        </td>
+    </tr>
+    <tr>
+        <td width="49">
+            <p style="text-align: center; font-weight:bold;">101</p>
+        </td>
+        <td colspan="2" width="491">
+            <p>Основен   капитал, изискващ регистрация</p>
+        </td>
+        <td width="70">
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td width="70">
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">102</p>
+        </td>
+        <td colspan="2">
+            <p>Капитал   неизискващ регистрация (за консорциуми и дружества по ЗЗД)</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">103</p>
+        </td>
+        <td colspan="2">
+            <p>Ликвидационен   капитал при несъстоятелност и ликвидация</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">104</p>
+        </td>
+        <td colspan="2">
+            <p>Капитал   на предприятия с нестопанска дейност</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   11: Капиталови Резерви</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">111</p>
+        </td>
+        <td colspan="2">
+            <p>Общи   резерви</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">112</p>
+        </td>
+        <td colspan="2">
+            <p>Резерви   от последваща оценка на дълготрайни активи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">113</p>
+        </td>
+        <td colspan="2">
+            <p>Резерви   от последваща оценка на финансови инструменти</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">114</p>
+        </td>
+        <td colspan="2">
+            <p>Резерви   от емисия на акции</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">115</p>
+        </td>
+        <td colspan="2">
+            <p>Резерви,   свързани с капитал</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Синтетична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">116</p>
+        </td>
+        <td colspan="2">
+            <p>Обратно   изкупени собствени акции</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Синтетична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">119</p>
+        </td>
+        <td colspan="2">
+            <p>Други   резерви</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   12: Финансови Резултати</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">121</p>
+        </td>
+        <td colspan="2">
+            <p>Непокрита   загуба от минали години</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">122</p>
+        </td>
+        <td colspan="2">
+            <p>Неразпределена   печалба от минали години</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">123</p>
+        </td>
+        <td colspan="2">
+            <p>Печалби   и загуби от текущата година</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Акт-Пас</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Синтетична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">124</p>
+        </td>
+        <td colspan="2">
+            <p>Резултат   при несъстоятелност и ликвидация</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Синтетична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">125</p>
+        </td>
+        <td colspan="2">
+            <p>Резултат   от дейността на предприятия с нестопанска цел</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Акт-Пас</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Синтетична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   15: Получени Заеми</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">151</p>
+        </td>
+        <td colspan="2">
+            <p>Получени   краткосрочни заеми</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">152</p>
+        </td>
+        <td colspan="2">
+            <p>Получени   дългосрочни заеми</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">153</p>
+        </td>
+        <td colspan="2">
+            <p>Кредитни   карти</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">154</p>
+        </td>
+        <td colspan="2">
+            <p>Дългови   инструменти</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">159</p>
+        </td>
+        <td colspan="2">
+            <p>Други   заеми и дългове</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffcc99;">
+            <p style="font-weight: bold">раздел 2: СМЕТКИ ЗА ДЪЛГОТРАЙНИ   АКТИВИ</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   20: Дълготрайни Материални Активи</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">2011</p>
+        </td>
+        <td colspan="2">
+            <p>Земи (Терени)</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">2012</p>
+        </td>
+        <td colspan="2">
+            <p>Подобрения   върху земите</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">202</p>
+        </td>
+        <td colspan="2">
+            <p>Сгради   и конструкции</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">203</p>
+        </td>
+        <td colspan="2">
+            <p>Компютърна   техника</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">204</p>
+        </td>
+        <td colspan="2">
+            <p>Съоръжения</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">205</p>
+        </td>
+        <td colspan="2">
+            <p>Машини   и оборудване</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">206</p>
+        </td>
+        <td colspan="2">
+            <p>Транспортни   средства</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">207</p>
+        </td>
+        <td colspan="2">
+            <p>Офис   обзавеждане</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">209</p>
+        </td>
+        <td colspan="2">
+            <p>Други   дълготрайни материални активи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   21: Дълготрайни Нематериални Активи</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">211</p>
+        </td>
+        <td colspan="2">
+            <p>Продукти   от развойна дейност</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">212</p>
+        </td>
+        <td colspan="2">
+            <p>Програмни   продукти</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">213</p>
+        </td>
+        <td colspan="2">
+            <p>Права   върху интелектуална собственост</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">214</p>
+        </td>
+        <td colspan="2">
+            <p>Права   върху индустриална собственост</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">219</p>
+        </td>
+        <td colspan="2">
+            <p>Други   дълготрайни нематериални активи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   22: Дългосрочни Финансови Активи</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">221</p>
+        </td>
+        <td colspan="2">
+            <p>Инвестиции   в дъщерни предприятия</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">222</p>
+        </td>
+        <td colspan="2">
+            <p>Инвестиции   в асоциирани предприятия</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">223</p>
+        </td>
+        <td colspan="2">
+            <p>Инвестиции   в смесени предприятия</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">224</p>
+        </td>
+        <td colspan="2">
+            <p>Инвестиции   в имоти (Инвестиционни имоти)</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">225</p>
+        </td>
+        <td colspan="2">
+            <p>Инвестиции   във финансови активи, държани до настъпване на падеж</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">226</p>
+        </td>
+        <td colspan="2">
+            <p>Инвестиции   във финансови активи, отчитани по справедлива стойност в печалбата или загубата</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">227</p>
+        </td>
+        <td colspan="2">
+            <p>Предоставени   дългосрочни заеми и вземания</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">228</p>
+        </td>
+        <td colspan="2">
+            <p>Инвестиции   във финансови активи на разположение за продажба</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">229</p>
+        </td>
+        <td colspan="2">
+            <p>Инвестиции   в други дългосрочни финансови активи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   23: Търговска Репутация</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">231</p>
+        </td>
+        <td colspan="2">
+            <p>Положителна   търговска репутация</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">232</p>
+        </td>
+        <td colspan="2">
+            <p>Отрицателна   търговска репутация</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   24: Амортизации</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">2412</p>
+        </td>
+        <td width="479">
+            <p>(Натрупана)   Амортизация на сгради и конструкции</p>
+        </td>
+        <td colspan="2" width="82">
+            <p style="text-align: center;">Корекционна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">2413</p>
+        </td>
+        <td width="479">
+            <p>(Натрупана)   Амортизация на компютърна техника</p>
+        </td>
+        <td colspan="2" width="82">
+            <p style="text-align: center;">Корекционна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">2414</p>
+        </td>
+        <td width="479">
+            <p>(Натрупана)   Амортизация на съоръжения</p>
+        </td>
+        <td colspan="2" width="82">
+            <p style="text-align: center;">Корекционна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">2415</p>
+        </td>
+        <td width="479">
+            <p>(Натрупана)   Амортизация на машини и оборудване</p>
+        </td>
+        <td colspan="2" width="82">
+            <p style="text-align: center;">Корекционна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">2416</p>
+        </td>
+        <td width="479">
+            <p>(Натрупана)   Амортизация на транспортни средства</p>
+        </td>
+        <td colspan="2" width="82">
+            <p style="text-align: center;">Корекционна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">2417</p>
+        </td>
+        <td width="479">
+            <p>(Натрупана)   Амортизация на офис обзавеждане</p>
+        </td>
+        <td colspan="2" width="82">
+            <p style="text-align: center;">Корекционна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">2419</p>
+        </td>
+        <td width="479">
+            <p>(Натрупана)   Амортизация на други дълготрайни материални активи</p>
+        </td>
+        <td colspan="2" width="82">
+            <p style="text-align: center;">Корекционна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">2421</p>
+        </td>
+        <td width="479">
+            <p>(Натрупана)   Амортизация на продукти от развойна дейност</p>
+        </td>
+        <td colspan="2" width="82">
+            <p style="text-align: center;">Корекционна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">2422</p>
+        </td>
+        <td width="479">
+            <p>(Натрупана)   Амортизация на програмни продукти</p>
+        </td>
+        <td colspan="2" width="82">
+            <p style="text-align: center;">Корекционна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">2429</p>
+        </td>
+        <td width="479">
+            <p>(Натрупана)   Амортизация на други дълготрайни нематериални активи</p>
+        </td>
+        <td colspan="2" width="82">
+            <p style="text-align: center;">Корекционна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">2431</p>
+        </td>
+        <td width="479">
+            <p>(Натрупана)   Амортизация на инвестиции в имоти (Инвестиционни имоти)</p>
+        </td>
+        <td colspan="2" width="82">
+            <p style="text-align: center;">Корекционна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">2432</p>
+        </td>
+        <td width="479">
+            <p>(Натрупана)   Амортизация на биологични активи</p>
+        </td>
+        <td colspan="2" width="82">
+            <p style="text-align: center;">Корекционна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">2433</p>
+        </td>
+        <td width="479">
+            <p>(Натрупана)   Амортизация на положителна репутация</p>
+        </td>
+        <td colspan="2" width="82">
+            <p style="text-align: center;">Корекционна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   25: Корекции при обезценка</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">251</p>
+        </td>
+        <td width="479">
+            <p>Корекция   при обезценка на вземания</p>
+        </td>
+        <td colspan="2" width="82">
+            <p style="text-align: center;">Корекционна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">252</p>
+        </td>
+        <td width="479">
+            <p>Корекция   при обезценка на други активи</p>
+        </td>
+        <td colspan="2" width="82">
+            <p style="text-align: center;">Корекционна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   27: Дълготрайни Биологични Активи</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">271</p>
+        </td>
+        <td colspan="2">
+            <p>Гори</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">272</p>
+        </td>
+        <td colspan="2">
+            <p>Трайни   насаждения &ndash; плододаващи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">273</p>
+        </td>
+        <td colspan="2">
+            <p>Трайни   насаждения &ndash; неплододаващи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">274</p>
+        </td>
+        <td colspan="2">
+            <p>Животни   в основни стада</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">279</p>
+        </td>
+        <td colspan="2">
+            <p>Други   дълготрайни биологични активи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffcc99;">
+            <p style="font-weight: bold">раздел 3: СМЕТКИ ЗА СТОКОВО   МАТЕРИАЛНИ ЗАПАСИ</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   30: Суровини/Материали, Продукция и   Стоки</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">301</p>
+        </td>
+        <td colspan="2">
+            <p>Доставки</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">302</p>
+        </td>
+        <td colspan="2">
+            <p>Суровини/Материали</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">303</p>
+        </td>
+        <td colspan="2">
+            <p>Продукти</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">304</p>
+        </td>
+        <td colspan="2">
+            <p>Стоки</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   31: Краткотрайни Биологични Активи</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">311</p>
+        </td>
+        <td colspan="2">
+            <p>Дребни   продуктивни животни</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">312</p>
+        </td>
+        <td colspan="2">
+            <p>Птици &ndash;   основни стада</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">313</p>
+        </td>
+        <td colspan="2">
+            <p class="MsoHeader">Пчелни   семейства</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">314</p>
+        </td>
+        <td colspan="2">
+            <p>Млади   животни</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">315</p>
+        </td>
+        <td colspan="2">
+            <p>Животни   за угояване</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">316</p>
+        </td>
+        <td colspan="2">
+            <p>Животни   за експериментални цели</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">319</p>
+        </td>
+        <td colspan="2">
+            <p>Други   краткотрайни биологични активи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffcc99;">
+            <p style="font-weight: bold">раздел 4: СМЕТКИ ЗА РАЗЧЕТИ</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   40: Доставчици и Свързани с Тях Сметки</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">401</p>
+        </td>
+        <td colspan="2">
+            <p>Задължения   към доставчици</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">402</p>
+        </td>
+        <td colspan="2">
+            <p>Вземания   от доставчици по аванси</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">403</p>
+        </td>
+        <td colspan="2">
+            <p>Задължения   към доставчици по търговски кредити</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">404</p>
+        </td>
+        <td colspan="2">
+            <p>Задължения   към доставчици по доставки при определени условия</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">405</p>
+        </td>
+        <td colspan="2">
+            <p>Задължения   към доставчици свързани лица</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">409</p>
+        </td>
+        <td colspan="2">
+            <p>Други задължения   към доставчици</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   41: Клиенти и Свързани с Тях Сметки</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">411</p>
+        </td>
+        <td colspan="2">
+            <p>Вземания   от клиенти</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">412</p>
+        </td>
+        <td colspan="2">
+            <p>Задължения   към клиенти по аванси</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">413</p>
+        </td>
+        <td colspan="2">
+            <p>Вземания   от клиенти по търговски кредити</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">414</p>
+        </td>
+        <td colspan="2">
+            <p>Вземания   от клиенти по продажби при определени условия</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">415</p>
+        </td>
+        <td colspan="2">
+            <p>Вземания   от клиенти свързани лица</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">419</p>
+        </td>
+        <td colspan="2">
+            <p>Други вземания   от клиенти</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   42: Персонал и Съдружници</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">421</p>
+        </td>
+        <td colspan="2">
+            <p>Задължения   към персонал</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">422</p>
+        </td>
+        <td colspan="2">
+            <p>Разчети   с подотчетни лица</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Акт-Пас</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">423</p>
+        </td>
+        <td colspan="2">
+            <p>Задължения   по неизползвани отпуски</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">424</p>
+        </td>
+        <td colspan="2">
+            <p>Вземания   от съучастия</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">425</p>
+        </td>
+        <td colspan="2">
+            <p>Задължения   за съучастия</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">426</p>
+        </td>
+        <td colspan="2">
+            <p>Вземания   по записани дялови вноски</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">429</p>
+        </td>
+        <td colspan="2">
+            <p>Други   разчети с персонала и съдружниците</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Акт-Пас</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   44: Вземания по Липси, Начети и Съдебни Спорове</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">441</p>
+        </td>
+        <td colspan="2">
+            <p>Вземания   по рекламации</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">442</p>
+        </td>
+        <td colspan="2">
+            <p>Вземания   по липси и начети</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">443</p>
+        </td>
+        <td colspan="2">
+            <p>Ценови   разлики по липси и начети</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">444</p>
+        </td>
+        <td colspan="2">
+            <p>Вземания   по съдебни спорове</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">445</p>
+        </td>
+        <td colspan="2">
+            <p>Присъдени   вземания</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   45: Разчети с Бюджета и Ведомствата</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">4521</p>
+        </td>
+        <td colspan="2">
+            <p>Разчети   за Годишен корпоративен данък</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Акт-Пас</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">4522</p>
+        </td>
+        <td colspan="2">
+            <p>Разчети   за Авансов корпоративен данък</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Акт-Пас</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Синтетична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">4531</p>
+        </td>
+        <td colspan="2">
+            <p>Начислен   данък върху добавената стойност за покупките</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Синтетична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">4532</p>
+        </td>
+        <td colspan="2">
+            <p>Начислен   данък върху добавената стойност за продажбите</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Синтетична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">4536</p>
+        </td>
+        <td colspan="2">
+            <p>Отложен данъчен кредит</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">4537</p>
+        </td>
+        <td colspan="2">
+            <p>Неизползван данъчен кредит</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">4538</p>
+        </td>
+        <td colspan="2">
+            <p>Данък   върху добавената стойност за възстановяване</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Синтетична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">4539</p>
+        </td>
+        <td colspan="2">
+            <p>Данък   върху добавената стойност за внасяне</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Синтетична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">454</p>
+        </td>
+        <td colspan="2">
+            <p>Разчети   за данъци върху доходи на физически лица</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Акт-Пас</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Синтетична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">456</p>
+        </td>
+        <td colspan="2">
+            <p>Разчети   за акцизи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Акт-Пас</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">457</p>
+        </td>
+        <td colspan="2">
+            <p>Разчети   с митници</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Акт-Пас</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">459</p>
+        </td>
+        <td colspan="2">
+            <p>Данъчни   разчети с бюджета</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Акт-Пас</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   46: Разчети с Осигурители</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">461</p>
+        </td>
+        <td colspan="2">
+            <p>Разчети   за задължително социално осигуряване</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Акт-Пас</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">462</p>
+        </td>
+        <td colspan="2">
+            <p>Разчети   за доброволно социално осигуряване</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Акт-Пас</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">463</p>
+        </td>
+        <td colspan="2">
+            <p>Разчети   за здравно осигуряване</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Акт-Пас</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">469</p>
+        </td>
+        <td colspan="2">
+            <p>Други   разчети с осигурители</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Акт-Пас</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   49: Разни Дебитори и Кредитори</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">491</p>
+        </td>
+        <td colspan="2">
+            <p>Разчети   с доверители</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Акт-Пас</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">492</p>
+        </td>
+        <td colspan="2">
+            <p>Разчети   за гаранции</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Акт-Пас</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">493</p>
+        </td>
+        <td colspan="2">
+            <p>Разчети   със собственици</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Акт-Пас</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">494</p>
+        </td>
+        <td colspan="2">
+            <p>Разчети   по отсрочени данъци</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Акт-Пас</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">495</p>
+        </td>
+        <td colspan="2">
+            <p>Разчети   по застраховане</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Акт-Пас</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">496</p>
+        </td>
+        <td colspan="2">
+            <p>Разчети   по лихви</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Акт-Пас</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">497</p>
+        </td>
+        <td colspan="2">
+            <p>Провизии</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">498</p>
+        </td>
+        <td colspan="2">
+            <p>Други   дебитори</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">499</p>
+        </td>
+        <td colspan="2">
+            <p>Други   кредитори</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffcc99;">
+            <p style="font-weight: bold">раздел 5: СМЕТКИ ЗА ФИНАНСОВИ   СРЕДСТВА</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   50: Парични Средства</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">501</p>
+        </td>
+        <td colspan="2">
+            <p>Каса в   левове</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">502</p>
+        </td>
+        <td colspan="2">
+            <p>Каса   във валута</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">503</p>
+        </td>
+        <td colspan="2">
+            <p>Разплащателна   сметки в левове</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">504</p>
+        </td>
+        <td colspan="2">
+            <p>Разплащателна   сметка във валута</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">505</p>
+        </td>
+        <td colspan="2">
+            <p>Акредитиви</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">506</p>
+        </td>
+        <td colspan="2">
+            <p>Предоставени   депозити</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">507</p>
+        </td>
+        <td colspan="2">
+            <p>Парични   средства, заложени като обезпечение</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">509</p>
+        </td>
+        <td colspan="2">
+            <p>Други   парични средства (в т.ч. ваучери и чекове)</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   51: Краткосрочни Финансови Активи</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">511</p>
+        </td>
+        <td colspan="2">
+            <p>Финансови   активи, отчитани по справедлива стойност в печалбата или загубата</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">512</p>
+        </td>
+        <td colspan="2">
+            <p>Финансови   активи, държани до настъпване на падеж</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">513</p>
+        </td>
+        <td colspan="2">
+            <p>Краткосрочни   заеми и вземания</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">514</p>
+        </td>
+        <td colspan="2">
+            <p>Финансови   активи на разположение за продажба</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">519</p>
+        </td>
+        <td colspan="2">
+            <p>Други   краткосрочни финансови активи (в т.ч. благородни метали)</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffcc99;">
+            <p style="font-weight: bold">раздел 6: СМЕТКИ ЗА РАЗХОДИ</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   60: Разходи по Икономически Елементи</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">601</p>
+        </td>
+        <td colspan="2">
+            <p>Разходи   за материали</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">602</p>
+        </td>
+        <td colspan="2">
+            <p>Разходи   за външни услуги</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">603</p>
+        </td>
+        <td colspan="2">
+            <p>Разходи   за амортизация</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">604</p>
+        </td>
+        <td colspan="2">
+            <p>Разходи   за заплати (възнаграждения)</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">605</p>
+        </td>
+        <td colspan="2">
+            <p>Разходи   за осигуровки</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">606</p>
+        </td>
+        <td colspan="2">
+            <p>Разходи   за данъци, такси и други подобни плащания</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">607</p>
+        </td>
+        <td colspan="2">
+            <p>Разходи   за провизии</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">608</p>
+        </td>
+        <td colspan="2">
+            <p>Разходи   от последващи оценки на активи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">609</p>
+        </td>
+        <td colspan="2">
+            <p>Други   разходи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   61: Разходи за Дейността</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">611</p>
+        </td>
+        <td colspan="2">
+            <p>Разходи   за основна дейност</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">612</p>
+        </td>
+        <td colspan="2">
+            <p>Разходи   за спомагателна дейност</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">613</p>
+        </td>
+        <td colspan="2">
+            <p>Разходи   за придобиване на дълготрайни активи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">614</p>
+        </td>
+        <td colspan="2">
+            <p>Административни   разходи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">615</p>
+        </td>
+        <td colspan="2">
+            <p>Разходи   за продажби</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   62: Финансови Разходи</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">621</p>
+        </td>
+        <td colspan="2">
+            <p>Разходи   за лихви</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">623</p>
+        </td>
+        <td colspan="2">
+            <p>Разходи   по операции с финансови активи и инструменти</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">624</p>
+        </td>
+        <td colspan="2">
+            <p>Разходи   по валутни операции</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Синтетична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">625</p>
+        </td>
+        <td colspan="2">
+            <p>Разходи   от последващи оценки на финансови активи и инструменти</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">629</p>
+        </td>
+        <td colspan="2">
+            <p>Други   финансови разходи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   65: Разходи за Бъдещи Периоди</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">651</p>
+        </td>
+        <td colspan="2">
+            <p>Нефинансови   разходи за бъдещи периоди</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">652</p>
+        </td>
+        <td colspan="2">
+            <p>Финансови   разходи за бъдещи периоди</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   69: Извънредни Разходи</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">691</p>
+        </td>
+        <td colspan="2">
+            <p>Извънредни   разходи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffcc99;">
+            <p style="font-weight: bold">раздел 7: СМЕТКИ ЗА ПРИХОДИ</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   70: Приходи от Продажби</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">701</p>
+        </td>
+        <td colspan="2">
+            <p>Приходи   от продажби на продукти</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">702</p>
+        </td>
+        <td colspan="2">
+            <p>Приходи   от продажби на стоки</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">703</p>
+        </td>
+        <td colspan="2">
+            <p>Приходи   от продажби на услуги</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">704</p>
+        </td>
+        <td colspan="2">
+            <p>Приходи   от наеми</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">705</p>
+        </td>
+        <td colspan="2">
+            <p>Приходи   от продажби на дълготрайни активи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">706</p>
+        </td>
+        <td colspan="2">
+            <p>Приходи   от продажба на суровини/материали</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">707</p>
+        </td>
+        <td colspan="2">
+            <p>Приходи   от последваща оценка на активи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">708</p>
+        </td>
+        <td colspan="2">
+            <p>Приходи   от финансирания</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">709</p>
+        </td>
+        <td colspan="2">
+            <p>Други   приходи от дейността</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   71: Приходи в Предприятия с Нестопанска Дейност</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">711</p>
+        </td>
+        <td colspan="2">
+            <p>Приходи   от регламентирана дейност</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">712</p>
+        </td>
+        <td colspan="2">
+            <p>Приходи   от членски внос</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Синтетична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">713</p>
+        </td>
+        <td colspan="2">
+            <p>Приходи   от финансирания и дарения</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Синтетична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">719</p>
+        </td>
+        <td colspan="2">
+            <p>Други   приходи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   72: Финансови Приходи</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">721</p>
+        </td>
+        <td colspan="2">
+            <p>Приходи   от лихви</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">722</p>
+        </td>
+        <td colspan="2">
+            <p>Приходи   от съучастия</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">723</p>
+        </td>
+        <td colspan="2">
+            <p>Приходи   от операции с финансови активи и инструменти</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">724</p>
+        </td>
+        <td colspan="2">
+            <p>Приходи   от валутни операции</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Синтетична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">725</p>
+        </td>
+        <td colspan="2">
+            <p>Приходи   от последващи оценки на финансови активи и инструменти</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">729</p>
+        </td>
+        <td colspan="2">
+            <p>Други   финансови приходи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   75: Приходи за Бъдещи Периоди и Финансирания</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">751</p>
+        </td>
+        <td colspan="2">
+            <p>Нефинансови   приходи за бъдещи периоди</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">752</p>
+        </td>
+        <td colspan="2">
+            <p>Финансови   приходи за бъдещи периоди</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">753</p>
+        </td>
+        <td colspan="2">
+            <p>Финансиране   за дълготрайни активи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">754</p>
+        </td>
+        <td colspan="2">
+            <p>Финансиране   на текущата дейност</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   79: Извънредни Приходи</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">791</p>
+        </td>
+        <td colspan="2">
+            <p>Извънредни   приходи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffcc99;">
+            <p style="font-weight: bold">раздел 9: СМЕТКИ ЗА УСЛОВНИ   АКТИВИ И ПАСИВИ</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   91: Чужди Материални, Нематериални и Финансови Активи на Съхранение</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">911</p>
+        </td>
+        <td colspan="2">
+            <p>Наети   чужди активи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">912</p>
+        </td>
+        <td colspan="2">
+            <p>Чужди   материални активи, получени по консигнационен договор</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">913</p>
+        </td>
+        <td colspan="2">
+            <p>Други   материални и нематериални активи, приети на съхранение</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">914</p>
+        </td>
+        <td colspan="2">
+            <p>Финансови   активи или парични средства, приети на за съхранение</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   98: Други Условни Активи</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">981</p>
+        </td>
+        <td colspan="2">
+            <p>Чужди   материални и нематериални активи, получени като обезпечение</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">982</p>
+        </td>
+        <td colspan="2">
+            <p>Чужди   финансови активи, получени като обезпечение</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">983</p>
+        </td>
+        <td colspan="2">
+            <p>Полици   или записи на заповед, получени като обезпечение</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">984</p>
+        </td>
+        <td colspan="2">
+            <p class="MsoHeader">Други условни активи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">989</p>
+        </td>
+        <td colspan="2">
+            <p class="MsoHeader">Кореспондираща сметка за условни активи</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Активна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Синтетична</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="background-color: #ffff99;">
+            <p style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; група   99: Други Условни Пасиви</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">991</p>
+        </td>
+        <td colspan="2">
+            <p>Собствени   материални и нематериални активи, предоставени като обезпечение</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">992</p>
+        </td>
+        <td colspan="2">
+            <p>Собствени   финансови активи, предоставени като обезпечение</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">993</p>
+        </td>
+        <td colspan="2">
+            <p>Полици   или записи на заповед, предоставени като обезпечение</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">994</p>
+        </td>
+        <td colspan="2">
+            <p>Други   условни пасиви</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Аналитична</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center; font-weight:bold;">999</p>
+        </td>
+        <td colspan="2">
+            <p>Кореспондираща сметка за условни пасиви</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Пасивна</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Синтетична</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<button >Click me!</button>
+
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        ar = $("tr");
+        var i = 0;
+        for(i=0; i < ar.length; i++) {
+            getTds(ar[i]);
+        }
+    });
+});
+
+function getTds(tr) {
+    tds = tr.children;
+    var j = tds.length;
+    var i = 0;
+    var s = "";
+    for(i=0; i < j; i++){
+        if(i == 0 && j < 4) {
+            txt = tds[i].innerText;
+            colPos = txt.indexOf(":");
+            nTxt = txt.slice(colPos-2,colPos).replace(" ","");
+            title = txt.slice(colPos+2);
+            console.log(nTxt + " | "+ title);
+            return;
+        }
+        else {
+            s += tds[i].innerText;
+            if(i < 3) {
+                s += " | ";
+            }
+        }
+    }
+    console.log(s);
+}
+</script>
+
+</body>
+</html>
