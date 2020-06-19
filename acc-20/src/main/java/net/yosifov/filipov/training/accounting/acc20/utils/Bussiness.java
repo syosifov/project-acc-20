@@ -32,6 +32,7 @@ public class Bussiness {
     @Autowired
     private AccountHistoryRep accountHistoryRep;
     private LedgerRec refLedgerRec;
+    private Company company;
 
     public Bussiness() {
     }
@@ -41,11 +42,11 @@ public class Bussiness {
                         String address,
                         String taxCode,
                         Integer fiscalYear) throws Exception {
-        Company company = new Company(name,
-                                      address,
-                                      taxCode,
-                                      fiscalYear
-                                    );
+        company = new Company(name,
+                              address,
+                              taxCode,
+                              fiscalYear
+                             );
         Account account = new Account();
         account.setCompany(company);
         account.setLastModified(LocalDate.now());
@@ -57,14 +58,10 @@ public class Bussiness {
         companiesRep.save(company);
 
         createLedger(account,"ledger_bg.txt");
+
         Account a157 = findAccById(157L);
         Account a10 = findAccById(10L);
-        if(null== a157 || null == a10) {
-            return;
-        }
         Account a15701  = addChildAccount(a157, a157.getAt(),"50301","Банка ДСК");
-
-
 
 /*
         Account a1  = addChildAccount(account, AT.A,"a1");
@@ -83,9 +80,26 @@ public class Bussiness {
 
     }
 
+    @Transactional
+    public void test() throws Exception {
+        Account a157 = findAccById(157L);
+        Account a245 = findAccById(245L);
+        Account a10 = findAccById(10L);
+
+//        a157 = findAccById(157L);
+//        assign(a157,a10,BigDecimal.valueOf(1000),company,"First Record",null);
+
+//        assign(a157,a10,BigDecimal.valueOf(1000),company,"First Record",null);
+        assign(a245,a10,BigDecimal.valueOf(1000),company,"First Record",null);
+    }
+
+    @Transactional
     private Account findAccById(long l) {
         Optional<Account> oAcc = accountsRep.findById(l);
-        Account a157;
+        /*if(oAcc.isPresent()){
+            Account acc = oAcc.get();
+            acc.getChildrenAccounts();
+        }*/
         return oAcc.orElse(null);
     }
 
@@ -279,10 +293,10 @@ public class Bussiness {
         if(v.compareTo(BigDecimal.ZERO)==0){
             throw new Exception("The transaction's ampount must not be Zero");
         }
-        if(accDebit.getChildrenAccounts().size()==0) {
+        if(accDebit.getChildrenAccounts().size() > 0) {
             throw new Exception("The Account to debit must not have children");
         }
-        if(accCredit.getChildrenAccounts().size()==0) {
+        if(accCredit.getChildrenAccounts().size() > 0) {
             throw new Exception("The Account to credit must not have children");
         }
         this.refLedgerRec = addLedgerRec(v,
