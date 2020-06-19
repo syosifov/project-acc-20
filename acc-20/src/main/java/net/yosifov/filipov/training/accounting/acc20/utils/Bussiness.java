@@ -52,7 +52,7 @@ public class Bussiness {
         accountsRep.save(account);
         companiesRep.save(company);
 
-        createLedgerBg(company, account);
+        createLedgerBg(account);
 
 //        Account a1  = addChildAccount(account, AT.A,"a1");
 //        Account a11 = addChildAccount( a1, AT.A,"a11");
@@ -69,7 +69,7 @@ public class Bussiness {
 
     }
 
-    private void createLedgerBg(Company company, Account baseAccount) {
+    private void createLedgerBg(Account baseAccount) throws Exception {
         Path path = Paths.get("src/main/resources/static/ledger_bg.txt");
         List<String> allLines;
         try {
@@ -85,6 +85,9 @@ public class Bussiness {
             if(sa[0].trim().length()==1){
                 section = addChildAccount(baseAccount, AT.AL,sa[0].trim(),sa[1].trim());
                 continue;
+            }
+            if(null==section) {
+                throw new Exception("Section is null");
             }
             if(sa[0].trim().length()==2){
                 subSection = addChildAccount(section, AT.AL,sa[0].trim(),sa[1].trim());
@@ -108,6 +111,9 @@ public class Bussiness {
                 case "Корекционна":
                 case "Corrective":
                     at = AT.C;
+            }
+            if(null==subSection) {
+                throw new Exception("subSection is null");
             }
             addChildAccount(subSection, at,sa[0].trim(),sa[1].trim());
         }
@@ -161,7 +167,7 @@ public class Bussiness {
 
 
     @Transactional
-    public void assign(Account accDebit,
+    public void assignUp(Account accDebit,
                        Account accCredit,
                        BigDecimal v,
                        LedgerRecDetail ledgerRecDetail){
@@ -252,6 +258,12 @@ public class Bussiness {
         if(v.compareTo(BigDecimal.ZERO)==0){
             throw new Exception("The transaction's ampount must not be Zero");
         }
+        if(accDebit.getChildrenAccounts().size()==0) {
+            throw new Exception("The Account to debit must not have children");
+        }
+        if(accCredit.getChildrenAccounts().size()==0) {
+            throw new Exception("The Account to credit must not have children");
+        }
         this.refLedgerRec = addLedgerRec(v,
                                  description,
                                  company,
@@ -261,6 +273,6 @@ public class Bussiness {
                                                               v,
                 this.refLedgerRec);
         ledgerRecDetailRep.save(ledgerRecDetail);
-        assign(accDebit,accCredit,v, ledgerRecDetail);
+        assignUp(accDebit,accCredit,v, ledgerRecDetail);
     }
 }
