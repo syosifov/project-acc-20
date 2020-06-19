@@ -14,9 +14,13 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class Bussiness {
+
+    private final String PATH = "src/main/resources/static/";
+
     @Autowired
     private CompaniesRep companiesRep;
     @Autowired
@@ -52,7 +56,16 @@ public class Bussiness {
         accountsRep.save(account);
         companiesRep.save(company);
 
-        createLedgerBg(account);
+        createLedger(account,"ledger_bg.txt");
+        Optional<Account> oA157 = accountsRep.findById(157L);
+        Account a157;
+        if(oA157.isPresent()) {
+            a157 = oA157.get();
+        }
+        else {
+            return;
+        }
+        Account a15701  = addChildAccount(a157, a157.getAt(),"50301","Банка ДСК");
 
 //        Account a1  = addChildAccount(account, AT.A,"a1");
 //        Account a11 = addChildAccount( a1, AT.A,"a11");
@@ -69,8 +82,9 @@ public class Bussiness {
 
     }
 
-    private void createLedgerBg(Account baseAccount) throws Exception {
-        Path path = Paths.get("src/main/resources/static/ledger_bg.txt");
+    private void createLedger(Account baseAccount,
+                                String sFileName) throws Exception {
+        Path path = Paths.get(PATH+sFileName);
         List<String> allLines;
         try {
             allLines = Files.readAllLines(path);
