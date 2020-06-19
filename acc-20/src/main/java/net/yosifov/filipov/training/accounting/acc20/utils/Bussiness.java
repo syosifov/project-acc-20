@@ -57,29 +57,36 @@ public class Bussiness {
         companiesRep.save(company);
 
         createLedger(account,"ledger_bg.txt");
-        Optional<Account> oA157 = accountsRep.findById(157L);
-        Account a157;
-        if(oA157.isPresent()) {
-            a157 = oA157.get();
-        }
-        else {
+        Account a157 = findAccById(157L);
+        Account a10 = findAccById(10L);
+        if(null== a157 || null == a10) {
             return;
         }
         Account a15701  = addChildAccount(a157, a157.getAt(),"50301","Банка ДСК");
 
-//        Account a1  = addChildAccount(account, AT.A,"a1");
-//        Account a11 = addChildAccount( a1, AT.A,"a11");
-//        Account accLost = addChildAccount(a1, AT.A,"Lost");
-//
-//        Account l1  = addChildAccount(account, AT.L,"L1");
-//        Account l11 = addChildAccount(l1, AT.L,"L11");
-//        Account accProfit = addChildAccount(l1, AT.L,"Profit");
-//
-//
-//        assign(a11,l11,BigDecimal.valueOf(1000),company,"First Record",null);
-//        assign(a11,l11,BigDecimal.valueOf(100),company,"Second Record",null);
-//        assign(a11,l11,BigDecimal.valueOf(-100),company,"Second Record",refLedgerRec);
 
+
+/*
+        Account a1  = addChildAccount(account, AT.A,"a1");
+        Account a11 = addChildAccount( a1, AT.A,"a11");
+        Account accLost = addChildAccount(a1, AT.A,"Lost");
+
+        Account l1  = addChildAccount(account, AT.L,"L1");
+        Account l11 = addChildAccount(l1, AT.L,"L11");
+        Account accProfit = addChildAccount(l1, AT.L,"Profit");
+
+
+        assign(a11,l11,BigDecimal.valueOf(1000),company,"First Record",null);
+        assign(a11,l11,BigDecimal.valueOf(100),company,"Second Record",null);
+        assign(a11,l11,BigDecimal.valueOf(-100),company,"Second Record",refLedgerRec);
+*/
+
+    }
+
+    private Account findAccById(long l) {
+        Optional<Account> oAcc = accountsRep.findById(l);
+        Account a157;
+        return oAcc.orElse(null);
     }
 
     private void createLedger(Account baseAccount,
