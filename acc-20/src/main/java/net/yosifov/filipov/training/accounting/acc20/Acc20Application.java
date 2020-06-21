@@ -20,5 +20,6 @@ public class Acc20Application implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		bussiness.install("Company 1", "Address 1", "1111111111",2020);
 		bussiness.test();
+		bussiness.test2();
 	}
 }

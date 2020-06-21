@@ -82,15 +82,20 @@ public class Bussiness {
 
     @Transactional
     public void test() throws Exception {
-        Account a157 = findAccById(157L);
+        Account a157;
         Account a245 = findAccById(245L);
         Account a10 = findAccById(10L);
 
-//        a157 = findAccById(157L);
-//        assign(a157,a10,BigDecimal.valueOf(1000),company,"First Record",null);
-
-//        assign(a157,a10,BigDecimal.valueOf(1000),company,"First Record",null);
         assign(a245,a10,BigDecimal.valueOf(1000),company,"First Record",null);
+        try {
+            a157 = findAccById(157L);
+            assign(a157,a10,BigDecimal.valueOf(1000),company,"Record to fail",null);
+        }
+        catch (Exception e) {
+            System.out.println("*********** "+e.getMessage()+" ***********");
+        }
+
+        assign(a245,a10,BigDecimal.valueOf(1000),company,"Second Record",null);
     }
 
     @Transactional
@@ -219,26 +224,6 @@ public class Bussiness {
         }
     }
 
-    @Transactional
-    public void reverseAssign(Account accDebit,
-                       Account accCredit,
-                       BigDecimal v,
-                       LedgerRecDetail ledgerRecDetail){
-        Account account = accDebit;
-        while (null != account){
-            registerOp(account, v, Op.ReverseDebit, ledgerRecDetail);
-            account = account.getParentAccount();
-        }
-
-        account = accCredit;
-        while (null != account){
-            registerOp(account, v, Op.ReverseCredit, ledgerRecDetail);
-            account = account.getParentAccount();
-        }
-    }
-
-
-
     private void registerOp(Account account, BigDecimal v, Op op, LedgerRecDetail ledgerRecDetail) {
         AccountHistory accountHistory = new AccountHistory();
         accountHistory.setAccount(account);
@@ -271,13 +256,57 @@ public class Bussiness {
         accountHistoryRep.save(accountHistory);
     }
 
-    @Transactional
+
     public void assign(Account accDebit,
                        Account accCredit,
                        BigDecimal v,
                        Company company,
-                       String description,
-                       LedgerRec refLedgerRec) throws Exception {
+                       String description) throws Exception {
+        assign(accDebit,
+               accCredit,
+               v,
+               company,
+               description,
+               null);
+    }
+
+    @Transactional
+    public void test2() throws Exception {
+        Optional<LedgerRecDetail> optLedgerRecDetail = ledgerRecDetailRep.findById(258L);
+        LedgerRecDetail ledgerRecDetail;
+        if(optLedgerRecDetail.isPresent()) {
+            ledgerRecDetail = optLedgerRecDetail.get();
+        }
+        else {
+            throw new Exception("ledgerRecDetail not found");
+        }
+        reverseAssign("Reverse Record 2", ledgerRecDetail);
+    }
+    @Transactional
+    public void reverseAssign(String description,
+                              LedgerRecDetail refLedgerRecDetail) throws Exception {
+        BigDecimal v = refLedgerRecDetail
+                        .getAmount()
+                        .multiply(BigDecimal.valueOf(-1L));
+        Account accDebit = refLedgerRecDetail.getAccDeb();
+        Account accCredit= refLedgerRecDetail.getAccCredit();
+        Company company  = refLedgerRecDetail.getLedgerRec().getCompany();
+
+        assign(accDebit,
+               accCredit,
+               v,
+               company,
+               description,
+               refLedgerRec);
+    }
+
+    @Transactional
+    protected void assign(Account accDebit,
+                          Account accCredit,
+                          BigDecimal v,
+                          Company company,
+                          String description,
+                          LedgerRec refLedgerRec) throws Exception {
         if(v.compareTo(BigDecimal.ZERO)>0) {
             if(refLedgerRec != null) {
                 throw new Exception("Argument refLedgerRec shoud be not null on reverse transactions only");
