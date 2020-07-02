@@ -1,5 +1,8 @@
 package net.yosifov.filipov.training.accounting.acc20.entities;
 
+import com.sun.istack.Nullable;
+import org.hibernate.annotations.Fetch;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -19,9 +22,10 @@ public class Company {
     @Column(unique = true)
     private String taxCode;
 
-    @NotNull
-    @OneToOne
-    private Account currentAccount;
+////    @Nullable
+////    @OneToOne(fetch = FetchType.LAZY)
+////    @Basic(optional = true, fetch = FetchType.LAZY)
+//    private Account currentAccount;
 
     @NotNull
     private Integer currentFiscalYear;
@@ -70,13 +74,13 @@ public class Company {
         this.taxCode = taxCode;
     }
 
-    public Account getCurrentAccount() {
-        return currentAccount;
-    }
-
-    public void setCurrentAccount(Account currentAccount) {
-        this.currentAccount = currentAccount;
-    }
+//    public Account getCurrentAccount() {
+//        return currentAccount;
+//    }
+//
+//    public void setCurrentAccount(Account currentAccount) {
+//        this.currentAccount = currentAccount;
+//    }
 
 
     public Integer getCurrentFiscalYear() {
@@ -94,7 +98,7 @@ public class Company {
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", taxCode='" + taxCode + '\'' +
-                ", accountName=" + currentAccount.getName() +
+//                ", accountName=" + currentAccount.getName() +
                 '}';
     }
 }

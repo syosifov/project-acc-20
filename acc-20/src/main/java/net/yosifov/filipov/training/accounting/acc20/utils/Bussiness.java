@@ -53,7 +53,7 @@ public class Bussiness {
         account.setName("");
         account.setDescription("Balance " + LocalDate.now().getYear());
         account.setAt(AT.AL);
-        company.setCurrentAccount(account);
+//        company.setCurrentAccount(account);
         accountsRep.save(account);
         companiesRep.save(company);
 
