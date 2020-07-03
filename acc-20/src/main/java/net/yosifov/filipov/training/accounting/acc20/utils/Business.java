@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-public class Bussiness {
+public class Business {
 
     private final String PATH = "src/main/resources/static/";
 
@@ -34,7 +34,7 @@ public class Bussiness {
     private LedgerRec refLedgerRec;
     private Company company;
 
-    public Bussiness() {
+    public Business() {
     }
 
     @Transactional
@@ -81,7 +81,7 @@ public class Bussiness {
     }
 
     @Transactional
-    public void test() throws Exception {
+    public void assignTest() throws Exception {
         Account a157;
         Account a245 = findAccById(245L);
         Account a10 = findAccById(10L);
@@ -271,7 +271,7 @@ public class Bussiness {
     }
 
     @Transactional
-    public void test2() throws Exception {
+    public void reverseTest() throws Exception {
         Optional<LedgerRecDetail> optLedgerRecDetail = ledgerRecDetailRep.findById(258L);
         LedgerRecDetail ledgerRecDetail;
         if(optLedgerRecDetail.isPresent()) {

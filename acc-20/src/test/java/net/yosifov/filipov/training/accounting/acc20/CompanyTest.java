@@ -2,7 +2,6 @@ package net.yosifov.filipov.training.accounting.acc20;
 
 import net.yosifov.filipov.training.accounting.acc20.entities.Company;
 import net.yosifov.filipov.training.accounting.acc20.repositories.CompaniesRep;
-import net.yosifov.filipov.training.accounting.acc20.utils.Bussiness;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
