@@ -18,7 +18,8 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-//@EnableTransactionManagement
+@EnableTransactionManagement
+@CrossOrigin
 // https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#transactions
 public class CompaniesContr {
 
@@ -32,13 +33,16 @@ public class CompaniesContr {
 
     @GetMapping("/jpa/companies/{id}")
     public Company retrieveFirmById(@PathVariable long id) {
-        Optional<Company> company = companiesRep.findById(id);
+        Optional<Company> oCompany = companiesRep.findById(id);
 
-        if(company.isEmpty()) {
+        if(oCompany.isEmpty()) {
             throw new NotFoundException("Company not found");
         }
 
-        return company.get();
+        Company company = oCompany.get();
+//        company.setCurrentAccount(null);
+
+        return company;
     }
 
     @PostMapping("/jpa/companies")

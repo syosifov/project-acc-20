@@ -48,14 +48,14 @@ public class Account {
     private String description;
 
     @Nullable
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Company company;
 
     @Nullable
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Account parentAccount;
 
-    @OneToMany(mappedBy = "parentAccount")
+    @OneToMany(mappedBy = "parentAccount", fetch = FetchType.LAZY)
     private List<Account> childrenAccounts;
 
     public Account() {
@@ -207,7 +207,7 @@ public class Account {
                 ", at=" + at +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", companyName=" + company.getName() +
+//                ", companyName=" + company.getName() +
 //                ", parentAccountAName=" + parentAccountA.getName() +
 //                ", parentAccountLName=" + parentAccountL.getName() +
                 '}';
