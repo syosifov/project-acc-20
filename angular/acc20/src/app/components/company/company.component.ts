@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyService } from 'src/app/services/company.service';
 import { Company } from 'src/app/common/company';
+import { GetResponseCompanies } from "src/app/services/company.service";
 
 @Component({
   selector: 'app-company',
@@ -9,7 +10,7 @@ import { Company } from 'src/app/common/company';
 })
 export class CompanyComponent implements OnInit {
 
-  private company: Company = new Company();
+  private getResponseCompanies: GetResponseCompanies;
 
   constructor(private companyService: CompanyService) { }
 
@@ -17,9 +18,9 @@ export class CompanyComponent implements OnInit {
   }
 
   doLoad() {
-    this.companyService.getProduct(2).subscribe(
+    this.companyService.getCompanies().subscribe(
       data => {
-        this.company = data;
+        this.getResponseCompanies = data;
         console.log(data);
       }
     );

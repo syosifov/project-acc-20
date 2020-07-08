@@ -10,15 +10,27 @@ import { Company } from '../common/company';
 })
 export class CompanyService {
 
-  private baseUrl = 'http://localhost:8080/jpa/companies';
+  private baseUrl = 'http://localhost:8080/api';
 
   constructor(private httpClient: HttpClient) { }
 
-  getProduct(theCompanyId: number): Observable<Company> {
+  getCompanies(): Observable<GetResponseCompanies> {
 
     // need to build URL based on product id
-    const productUrl = `${this.baseUrl}/${theCompanyId}`;
+    //const productUrl = `${this.baseUrl}/${theCompanyId}`;
 
-    return this.httpClient.get<Company>(productUrl);
+    return this.httpClient.get<GetResponseCompanies>(this.baseUrl+"/companies");
+  }
+}
+
+export interface GetResponseCompanies{
+  _embedded: {
+    companies: Company[];
+  },
+  page: {
+    size: number,
+    totalElements: number,
+    totalPages: number,
+    number: number
   }
 }
