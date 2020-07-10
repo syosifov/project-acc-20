@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
-@EnableTransactionManagement
-@CrossOrigin
+//@RestController
+//@EnableTransactionManagement
+//@CrossOrigin
 // https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#transactions
 public class CompaniesContr {
 
@@ -39,10 +39,10 @@ public class CompaniesContr {
             throw new NotFoundException("Company not found");
         }
 
-        Company company = oCompany.get();
+//        Company company = oCompany.get();
 //        company.setCurrentAccount(null);
 
-        return company;
+        return oCompany.get();
     }
 
     @PostMapping("/jpa/companies")
