@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "a883cce5-bf7c-4fb2-8b10-2157f2259b12",
+		"name": "acc-20",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create a Company",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\": \"Name 1\",\n\"address\": \"Address 1\",\n\"taxCode\": \"Code 1044\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/companies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"companies"
+					]
+				},
+				"description": "Create a Company"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all companies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/companies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Company",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Name 7\",\n\t\"address\": \"Address 7\",\n\t\"taxCode\": \"Code 1047\",\n    \"currentFiscalYear\": 2020\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/companies/279",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"companies",
+						"279"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a company",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/companies/279",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"companies",
+						"279"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create an Account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"assets\": 0.00,\n  \"liabilities\": 0.00,\n  \"balance\": 0.00,\n  \"lastModified\": \"2020-07-10\",\n  \"at\": \"AL\",\n  \"name\": \"123\",\n  \"parentAccount\": {\n      \"href\": \"http://localhost:8080/api/accounts/20\"\n    },\n    \"company\": {\n      \"href\": \"http://localhost:8080/api/accounts/20/company\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
