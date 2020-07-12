@@ -1,0 +1,49 @@
+Create a Company
+application/json
+POST: http://localhost:8080/api/companies
+{
+"name": "Name 1",
+"address": "Address 1",
+"taxCode": "Code 1044"
+}
+------------------------------------------------
+
+Get all companies
+GET: http://localhost:8080/api/companies
+------------------------------------------------
+
+Update a Company
+application/json
+PUT: http://localhost:8080/api/companies/279
+{
+	"name": "Name 7",
+	"address": "Address 7",
+	"taxCode": "Code 1047",
+    "currentFiscalYear": 2020
+}
+------------------------------------------------
+
+Delete a Company
+DELETE: http://localhost:8080/api/companies/279
+------------------------------------------------
+
+Create an Account
+application/json
+POST: http://localhost:8080/api/accounts
+{
+  "assets": 0.00,
+  "liabilities": 0.00,
+  "balance": 0.00,
+  "lastModified": "2020-07-10",
+  "at": "AL",
+  "name": "123",
+  "parentAccount": {
+      "href": "http://localhost:8080/api/accounts/20"
+    },
+    "company": {
+      "href": "http://localhost:8080/api/accounts/20/company"
+    }
+}
+------------------------------------------------
+
+
