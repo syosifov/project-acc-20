@@ -57,7 +57,7 @@ public class Business {
         accountsRep.save(account);
         companiesRep.save(company);
 
-        createLedger(account,"ledger_bg.txt");
+        createLedger(account,"ledger.txt");
 
         Account a157 = findAccById(157L);
         Account a10 = findAccById(10L);
