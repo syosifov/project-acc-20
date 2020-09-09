@@ -2,6 +2,8 @@ package net.yosifov.filipov.training.accounting.acc20.utils;
 
 import net.yosifov.filipov.training.accounting.acc20.entities.*;
 import net.yosifov.filipov.training.accounting.acc20.repositories.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +20,8 @@ import java.util.Optional;
 
 @Component
 public class Business {
+    static final Logger logger =
+            LoggerFactory.getLogger(Business.class);
 
     private final String PATH = "src/main/resources/static/";
 
@@ -57,7 +61,7 @@ public class Business {
         accountsRep.save(account);
         companiesRep.save(company);
 
-        createLedger(account,"ledger.txt");
+        createLedger(account,"ledger_bg.txt");
 
         Account a157 = findAccById(157L);
         Account a10 = findAccById(10L);
@@ -92,7 +96,7 @@ public class Business {
             assign(a157,a10,BigDecimal.valueOf(1000),company,"Record to fail",null);
         }
         catch (Exception e) {
-            System.out.println("*********** "+e.getMessage()+" ***********");
+            logger.error(e.getMessage());
         }
 
         assign(a245,a10,BigDecimal.valueOf(1000),company,"Second Record",null);
@@ -136,21 +140,10 @@ public class Business {
             AT at = null;
             String sAT = sa[2].trim();
             switch (sAT) {
-                case "Активна":
-                case "Active":
-                    at = AT.A;
-                    break;
-                case "Пасивна":
-                case "Passive":
-                    at = AT.L;
-                    break;
-                case "Акт-Пас":
-                case "Act-Pass":
-                    at = AT.AL;
-                    break;
-                case "Корекционна":
-                case "Corrective":
-                    at = AT.C;
+                case "Активна", "Active" -> at = AT.A;
+                case "Пасивна", "Passive" -> at = AT.L;
+                case "Акт-Пас", "Act-Pass" -> at = AT.AL;
+                case "Корекционна", "Corrective" -> at = AT.C;
             }
             if(null==subSection) {
                 throw new Exception("subSection is null");
@@ -234,21 +227,19 @@ public class Business {
         accountHistory.setInitialAssets(account.getAssets());
         accountHistory.setInitialLiabilities(account.getLiabilities());
 
-        switch (op){
-            case Debit:
-            case ReverseDebit:
+        switch (op) {
+            case Debit, ReverseDebit -> {
                 account.debit(v);
                 accountHistory.setEndBalance(account.getBalance());
                 accountHistory.setEndAssets(account.getAssets());
                 accountHistory.setEndLiabilities(account.getLiabilities());
-                break;
-            case Credit:
-            case ReverseCredit:
+            }
+            case Credit, ReverseCredit -> {
                 account.credit(v);
                 accountHistory.setEndBalance(account.getBalance());
                 accountHistory.setEndAssets(account.getAssets());
                 accountHistory.setEndLiabilities(account.getLiabilities());
-                break;
+            }
         }
 
         accountHistory.setOp(op);
